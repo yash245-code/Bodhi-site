@@ -1,0 +1,23 @@
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# Large Distribution Binaries (hosted on GitHub Releases)
+*.exe
+*.zip
+*.rar
+*.7z
+*.dmg
+*.AppImage
+*.deb
+*.rpm
+downloads/*.exe
+downloads/*.zip
+
+# Node modules / caches if ever added
+node_modules/
+dist/
+.cache/

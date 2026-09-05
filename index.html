@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cortex Code Editor — Fast, Lightweight, Privacy-First Desktop IDE</title>
+  <meta name="description" content="Cortex is a next-generation lightweight desktop code editor engineered with Monaco Editor, zero-lag native terminal, instant file watching, and zero telemetry." />
+  <meta name="keywords" content="Cortex, Code Editor, IDE, Monaco Editor, Electron, React, TypeScript, Desktop Editor, Open Source, BUIMB Research" />
+  <meta name="author" content="BUIMB Research / Yash.dev" />
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Cortex Code Editor — Fast, Lightweight & Privacy-First" />
+  <meta property="og:description" content="Experience instant load times, Monaco engine, native dockable terminal, and zero-telemetry local privacy." />
+  <meta property="og:image" content="assets/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cortex Code Editor" />
+  <meta name="twitter:description" content="Next-generation lightweight code editor engineered with Monaco and native terminal." />
+  
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-dark text-slate">
+
+  <!-- Ambient Glow & Cyber Grid -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+  <div class="cyber-grid-overlay"></div>
+
+  <!-- Navbar -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="#" class="brand-link" id="brand-logo">
+        <div class="brand-icon-wrapper">
+          <img src="assets/logo.png" alt="Cortex Logo" class="brand-logo-img" />
+          <div class="brand-glow-ring"></div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">CORTEX</span>
+          <span class="brand-badge">v1.0.0</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#features" class="nav-item">Features</a>
+        <a href="#demo" class="nav-item">Interactive Demo</a>
+        <a href="#shortcuts" class="nav-item">Shortcuts</a>
+        <a href="#comparison" class="nav-item">Benchmarks</a>
+        <a href="#downloads" class="nav-item">Downloads</a>
+        <a href="#docs" class="nav-item">Architecture</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://github.com/yash245-code/Cortex" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-icon" title="View GitHub Repository" id="nav-github-btn">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span class="github-star-count" id="nav-star-label">Star</span>
+        </a>
+        <a href="#downloads" class="btn btn-primary btn-glow" id="nav-download-cta">
+          <span>Get Cortex</span>
+          <svg class="icon arrow-icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-container">
+      
+      <div class="hero-badge-wrap">
+        <div class="pill-badge" id="hero-pill">
+          <span class="pill-pulse"></span>
+          <span class="pill-text"><strong>Cortex v1.0.0 Stable</strong> is now available for Windows</span>
+          <a href="#downloads" class="pill-arrow">Download &rarr;</a>
+        </div>
+      </div>
+
+      <h1 class="hero-title">
+        The Next-Gen Lightweight <br />
+        <span class="gradient-text">Desktop Code Editor</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Engineered for speed, privacy, and flow. Powered by the high-precision Monaco Engine, integrated zero-lag native terminal, dynamic Chokidar workspace watching, and zero telemetry.
+      </p>
+
+      <!-- Primary Action Buttons -->
+      <div class="hero-cta-group">
+        <div class="download-dropdown-wrapper">
+          <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.Setup.1.0.0.exe" class="btn btn-primary btn-xl btn-glow-lg" id="hero-setup-download" download>
+            <div class="btn-icon-box">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="icon-win">
+                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+              </svg>
+            </div>
+            <div class="btn-label-group">
+              <span class="btn-subtext">Free &amp; Open Source</span>
+              <span class="btn-maintext">Download Windows Setup (.exe)</span>
+            </div>
+          </a>
+          <button class="dropdown-trigger-btn" id="hero-dropdown-trigger" title="More download options">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div class="download-dropdown-menu" id="hero-dropdown-menu">
+            <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.Setup.1.0.0.exe" class="dropdown-option" download>
+              <div class="opt-icon">⚡</div>
+              <div class="opt-details">
+                <span class="opt-title">Windows Installer (.exe) <span class="badge-rec">Recommended</span></span>
+                <span class="opt-meta">Full desktop integration with Terms installer • ~104 MB</span>
+              </div>
+            </a>
+            <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex-1.0.0-win-x64.zip" class="dropdown-option" download>
+              <div class="opt-icon">📦</div>
+              <div class="opt-details">
+                <span class="opt-title">Windows Standalone Archive (.zip)</span>
+                <span class="opt-meta">No setup needed. Extract and run anywhere • ~103 MB</span>
+              </div>
+            </a>
+            <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.1.0.0.exe" class="dropdown-option" download>
+              <div class="opt-icon">🚀</div>
+              <div class="opt-details">
+                <span class="opt-title">Windows Portable (.exe)</span>
+                <span class="opt-meta">Single executable file, zero installation • ~104 MB</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <a href="https://github.com/yash245-code/Cortex" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xl" id="hero-gh-btn">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>Source Code on GitHub</span>
+        </a>
+      </div>
+
+      <!-- Quick Specs Meta -->
+      <div class="hero-specs-row">
+        <div class="spec-item">
+          <span class="spec-dot green"></span>
+          <span>Windows 10 / 11 (64-bit)</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-dot cyan"></span>
+          <span>Zero Telemetry / 100% Local</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-dot purple"></span>
+          <span>Permissive BUIMB License</span>
+        </div>
+      </div>
+
+      <!-- Interactive Code Editor Simulator Mockup -->
+      <div class="simulator-wrapper" id="demo">
+        <div class="simulator-window">
+          
+          <!-- Mock Window Title Bar -->
+          <div class="sim-titlebar">
+            <div class="sim-controls">
+              <span class="sim-btn close"></span>
+              <span class="sim-btn min"></span>
+              <span class="sim-btn max"></span>
+            </div>
+            <div class="sim-brand">
+              <img src="assets/logo.png" alt="Cortex" class="sim-logo" />
+              <span class="sim-appname">Cortex Editor — Workspace: [src/cortex-core]</span>
+            </div>
+            <div class="sim-quick-actions">
+              <span class="sim-shortcut-badge"><kbd>Ctrl</kbd> + <kbd>P</kbd> Command Palette</span>
+            </div>
+          </div>
+
+          <!-- Mock Editor Workspace Layout -->
+          <div class="sim-body">
+            
+            <!-- Mock Sidebar -->
+            <div class="sim-sidebar">
+              <div class="sidebar-header">
+                <span class="sidebar-title">EXPLORER</span>
+                <span class="sidebar-badge">LIVE SYNC</span>
+              </div>
+              <div class="tree-root">
+                <div class="tree-folder open">
+                  <span class="folder-icon">📂</span>
+                  <span class="folder-name">cortex-core</span>
+                </div>
+                <div class="tree-children">
+                  <div class="tree-file active" data-file="app-tsx">
+                    <span class="file-icon tsx">⚛️</span>
+                    <span class="file-name">App.tsx</span>
+                  </div>
+                  <div class="tree-file" data-file="terminal-ts">
+                    <span class="file-icon ts">📜</span>
+                    <span class="file-name">terminalService.ts</span>
+                  </div>
+                  <div class="tree-file" data-file="chokidar-ts">
+                    <span class="file-icon ts">👁️</span>
+                    <span class="file-name">fileWatcher.ts</span>
+                  </div>
+                  <div class="tree-file" data-file="cortex-config">
+                    <span class="file-icon json">⚙️</span>
+                    <span class="file-name">cortex.config.json</span>
+                  </div>
+                  <div class="tree-file" data-file="terms-md">
+                    <span class="file-icon md">🛡️</span>
+                    <span class="file-name">TERMS.md</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sidebar-stats">
+                <div class="stat-row">
+                  <span>Engine:</span>
+                  <span class="stat-val cyan">Monaco 0.44</span>
+                </div>
+                <div class="stat-row">
+                  <span>PTY:</span>
+                  <span class="stat-val green">Active (xterm)</span>
+                </div>
+                <div class="stat-row">
+                  <span>Telemetry:</span>
+                  <span class="stat-val red">0% (Disabled)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mock Main Editor Column -->
+            <div class="sim-main-col">
+              
+              <!-- Tab Bar -->
+              <div class="sim-tabs" id="sim-tabs-container">
+                <button class="sim-tab active" data-tab="app-tsx">
+                  <span class="tab-icon">⚛️</span>
+                  <span class="tab-label">App.tsx</span>
+                  <span class="tab-dirty">●</span>
+                </button>
+                <button class="sim-tab" data-tab="terminal-ts">
+                  <span class="tab-icon">📜</span>
+                  <span class="tab-label">terminalService.ts</span>
+                </button>
+                <button class="sim-tab" data-tab="chokidar-ts">
+                  <span class="tab-icon">👁️</span>
+                  <span class="tab-label">fileWatcher.ts</span>
+                </button>
+                <button class="sim-tab" data-tab="cortex-config">
+                  <span class="tab-icon">⚙️</span>
+                  <span class="tab-label">cortex.config.json</span>
+                </button>
+              </div>
+
+              <!-- Breadcrumb Bar -->
+              <div class="sim-breadcrumbs">
+                <span>cortex-core</span>
+                <span class="bc-sep">/</span>
+                <span>src</span>
+                <span class="bc-sep">/</span>
+                <span class="bc-active" id="bc-filename">App.tsx</span>
+                <span class="bc-line-tag">TypeScript React (UTF-8)</span>
+              </div>
+
+              <!-- Code View Container -->
+              <div class="sim-editor-content" id="sim-code-display">
+                <!-- Injected via JavaScript -->
+              </div>
+
+              <!-- Dockable Terminal Panel -->
+              <div class="sim-terminal-dock" id="sim-terminal">
+                <div class="term-header">
+                  <div class="term-tabs">
+                    <span class="term-tab active">
+                      <span class="term-status-dot"></span>
+                      <span>PowerShell (node-pty)</span>
+                    </span>
+                    <span class="term-tab">Output</span>
+                    <span class="term-tab">Debug Console</span>
+                  </div>
+                  <div class="term-actions">
+                    <button class="term-btn" id="term-clear-btn" title="Clear terminal">Clear</button>
+                    <button class="term-btn" id="term-run-build-btn" title="Run quick test">▶ Run Build</button>
+                  </div>
+                </div>
+                <div class="term-body" id="sim-term-output">
+                  <div class="term-line banner">Cortex Interactive Terminal Shell v1.0.0 [node-pty stream connected]</div>
+                  <div class="term-line banner">Type <span class="cyan">help</span>, <span class="cyan">features</span>, <span class="cyan">specs</span>, <span class="cyan">build</span>, or <span class="cyan">download</span> below:</div>
+                  <div class="term-log-entries" id="term-log-entries"></div>
+                  <div class="term-input-row">
+                    <span class="term-prompt">PS C:\Cortex\workspace&gt;</span>
+                    <input type="text" id="term-input" class="term-input" placeholder="Type a command (e.g. 'help' or 'build')..." autocomplete="off" spellcheck="false" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Status Bar -->
+              <div class="sim-statusbar">
+                <div class="sb-left">
+                  <span class="sb-item git-branch"><svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path fill-rule="evenodd" d="M11.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122V6A2.5 2.5 0 0110 8.5H6a1 1 0 00-1 1v1.128a2.251 2.251 0 11-1.5 0V5.372a2.25 2.25 0 111.5 0v1.836A2.492 2.492 0 016 7h4a1 1 0 001-1v-.628A2.25 2.25 0 019.5 3.25zM4.25 12a.75.75 0 100 1.5.75.75 0 000-1.5zM3.5 3.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0z"/></svg> main*</span>
+                  <span class="sb-item">0 Errors, 0 Warnings</span>
+                </div>
+                <div class="sb-right">
+                  <span class="sb-item" id="sb-pos">Ln 24, Col 18</span>
+                  <span class="sb-item">Spaces: 2</span>
+                  <span class="sb-item">UTF-8</span>
+                  <span class="sb-item">CRLF</span>
+                  <span class="sb-item cyan">cortex-dark</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Feature Grid Section -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">ENGINEERED FOR EXCELLENCE</span>
+        <h2 class="section-title">Everything you need. <br /><span class="gradient-text">Zero bloated baggage.</span></h2>
+        <p class="section-subtitle">
+          Cortex strikes the ideal balance between raw desktop power and instant responsiveness. Built from scratch with modern web standards and native system bindings.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        
+        <!-- Card 1 -->
+        <div class="feature-card">
+          <div class="card-glow-bg"></div>
+          <div class="feature-icon-box cyan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h3 class="feature-title">High-Precision Monaco Engine</h3>
+          <p class="feature-desc">
+            Equipped with the battle-tested Monaco Editor engine. Enjoy multi-cursor editing, bracket colorization, minimap support, and syntax highlighting for 25+ languages.
+          </p>
+          <ul class="feature-pills">
+            <li>TypeScript / JS</li>
+            <li>Python</li>
+            <li>Rust / Go</li>
+            <li>JSON / YAML</li>
+          </ul>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="feature-card">
+          <div class="card-glow-bg"></div>
+          <div class="feature-icon-box green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="4 17 10 11 4 5"></polyline>
+              <line x1="12" y1="19" x2="20" y2="19"></line>
+            </svg>
+          </div>
+          <h3 class="feature-title">Native Dockable Terminal</h3>
+          <p class="feature-desc">
+            Integrated xterm.js terminal with native <code class="inline-code">node-pty</code> acceleration. Run PowerShell, Command Prompt, or WSL with zero input latency and full ANSI color support.
+          </p>
+          <ul class="feature-pills">
+            <li>PowerShell / WSL</li>
+            <li>Bi-directional IPC</li>
+            <li>Dockable Panel</li>
+          </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="feature-card">
+          <div class="card-glow-bg"></div>
+          <div class="feature-icon-box purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h3 class="feature-title">Dynamic File Tree &amp; Watcher</h3>
+          <p class="feature-desc">
+            Multi-directory workspace management with real-time <code class="inline-code">chokidar</code> file system tracking. External file changes appear instantly in your workspace with zero manual refresh.
+          </p>
+          <ul class="feature-pills">
+            <li>Inline Create/Rename</li>
+            <li>Folder Watcher</li>
+            <li>Dirty Buffer Tracking</li>
+          </ul>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="feature-card">
+          <div class="card-glow-bg"></div>
+          <div class="feature-icon-box amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <h3 class="feature-title">100% Local &amp; Privacy-First</h3>
+          <p class="feature-desc">
+            Strict process isolation (<code class="inline-code">contextIsolation: true</code>). BUIMB Research guarantees zero keystroke telemetry, zero remote tracking, and direct client-to-API communication.
+          </p>
+          <ul class="feature-pills">
+            <li>Zero Telemetry</li>
+            <li>Direct AI Keys</li>
+            <li>Local Storage</li>
+          </ul>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="feature-card">
+          <div class="card-glow-bg"></div>
+          <div class="feature-icon-box blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 14 14"></polyline>
+            </svg>
+          </div>
+          <h3 class="feature-title">Instant Sub-Second Startup</h3>
+          <p class="feature-desc">
+            Optimized Vite bundle with on-demand module resolution. Launches cleanly without hundreds of background services eating away your CPU and RAM.
+          </p>
+          <ul class="feature-pills">
+            <li>&lt; 750ms Launch</li>
+            <li>Low RAM footprint</li>
+            <li>Clean Lifecycle</li>
+          </ul>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="feature-card">
+          <div class="card-glow-bg"></div>
+          <div class="feature-icon-box pink">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3z"></path>
+              <path d="M6 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3z"></path>
+            </svg>
+          </div>
+          <h3 class="feature-title">Seamless Tab &amp; Layout Manager</h3>
+          <p class="feature-desc">
+            Multi-tab workspace with middle-click close, unsaved dot badges, keyboard navigation, breadcrumb path traversal, and customizable split-views.
+          </p>
+          <ul class="feature-pills">
+            <li>Command Palette</li>
+            <li>Custom Title Bar</li>
+            <li>Dark Theme UI</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Shortcuts Section -->
+  <section class="shortcuts-section" id="shortcuts">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">KEYBOARD WORKFLOW</span>
+        <h2 class="section-title">Fly Through Code with <br /><span class="gradient-text">Fingertip Shortcuts</span></h2>
+        <p class="section-subtitle">
+          Designed for developers who love staying on the keyboard. Search or filter through Cortex shortcuts below.
+        </p>
+      </div>
+
+      <div class="shortcuts-box">
+        <div class="shortcuts-filter-bar">
+          <input type="text" id="shortcut-search-input" class="shortcut-search" placeholder="Filter shortcuts (e.g., 'terminal', 'save', 'palette')..." />
+          <div class="shortcut-tags">
+            <button class="filter-btn active" data-cat="all">All</button>
+            <button class="filter-btn" data-cat="editor">Editor</button>
+            <button class="filter-btn" data-cat="workspace">Workspace</button>
+            <button class="filter-btn" data-cat="view">View &amp; Terminal</button>
+          </div>
+        </div>
+
+        <div class="shortcuts-grid" id="shortcuts-grid">
+          <!-- Populated via JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Benchmark Comparison Section -->
+  <section class="comparison-section" id="comparison">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">BENCHMARK COMPARISON</span>
+        <h2 class="section-title">Built Lean. <br /><span class="gradient-text">Benchmark Proven.</span></h2>
+        <p class="section-subtitle">
+          See how Cortex stands against bloated legacy editors when you just want to write clean code without lag.
+        </p>
+      </div>
+
+      <div class="table-responsive">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature / Metric</th>
+              <th class="highlight-th">
+                <div class="th-brand">
+                  <img src="assets/logo.png" alt="Cortex" width="20" />
+                  <span>Cortex 1.0</span>
+                </div>
+              </th>
+              <th>Standard Full IDEs</th>
+              <th>Basic Text Editors</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cold Startup Speed</td>
+              <td class="highlight-td"><strong class="cyan">&lt; 0.8s</strong> (Instant)</td>
+              <td>4.5s – 12.0s</td>
+              <td>0.5s</td>
+            </tr>
+            <tr>
+              <td>Idle Memory Footprint</td>
+              <td class="highlight-td"><strong class="cyan">~110 MB</strong></td>
+              <td>600 MB – 1.8 GB</td>
+              <td>70 MB</td>
+            </tr>
+            <tr>
+              <td>Built-in Native Terminal</td>
+              <td class="highlight-td"><span class="check-icon">✓</span> node-pty / xterm</td>
+              <td><span class="check-icon">✓</span> Included</td>
+              <td><span class="cross-icon">✗</span> None</td>
+            </tr>
+            <tr>
+              <td>Monaco Editor Core</td>
+              <td class="highlight-td"><span class="check-icon">✓</span> 25+ Languages</td>
+              <td><span class="check-icon">✓</span> Included</td>
+              <td><span class="cross-icon">✗</span> Basic Syntax</td>
+            </tr>
+            <tr>
+              <td>Telemetry &amp; Tracking</td>
+              <td class="highlight-td"><strong class="green">0% (Zero Telemetry)</strong></td>
+              <td>Extensive Analytics</td>
+              <td>Varies</td>
+            </tr>
+            <tr>
+              <td>Real-time File Watcher</td>
+              <td class="highlight-td"><span class="check-icon">✓</span> Chokidar IPC</td>
+              <td><span class="check-icon">✓</span> Heavy indexer</td>
+              <td><span class="cross-icon">✗</span> Manual reload</td>
+            </tr>
+            <tr>
+              <td>Terms &amp; Open License</td>
+              <td class="highlight-td"><strong class="purple">Permissive (BUIMB)</strong></td>
+              <td>Proprietary / EULA</td>
+              <td>Various</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Downloads Section -->
+  <section class="downloads-section" id="downloads">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">DOWNLOAD CENTER</span>
+        <h2 class="section-title">Get Started with Cortex <br /><span class="gradient-text">Choose Your Preferred Format</span></h2>
+        <p class="section-subtitle">
+          Available as a Windows Setup Installer, Portable Single Executable, or Standalone ZIP Archive.
+        </p>
+      </div>
+
+      <div class="downloads-cards-grid">
+        
+        <!-- Option 1: Setup Installer -->
+        <div class="download-card featured">
+          <div class="card-featured-badge">MOST POPULAR</div>
+          <div class="dl-card-icon">⚡</div>
+          <h3 class="dl-title">Windows Setup Installer</h3>
+          <p class="dl-desc">Standard Windows NSIS installer with desktop shortcuts, Start Menu entry, and BUIMB license screen.</p>
+          
+          <div class="dl-meta-box">
+            <div class="dl-meta-row"><span>File:</span> <code class="mono-tag">Cortex Setup 1.0.0.exe</code></div>
+            <div class="dl-meta-row"><span>Size:</span> <span class="cyan">~104.7 MB</span></div>
+            <div class="dl-meta-row"><span>Compatibility:</span> <span>Windows 10 / 11 (x64)</span></div>
+          </div>
+
+          <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.Setup.1.0.0.exe" class="btn btn-primary btn-block btn-glow" download id="download-setup-btn">
+            <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            <span>Download Setup (.exe)</span>
+          </a>
+
+          <div class="hash-toggle-wrap">
+            <button class="hash-btn" data-target="hash-setup">View SHA-256 Hash</button>
+            <div class="hash-box" id="hash-setup">
+              <code>SHA256: 4f8d9b2e...cortex-setup-v1.0.0</code>
+              <button class="copy-hash-btn" data-hash="cortex-setup-1.0.0-sha256">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Option 2: Standalone ZIP Archive -->
+        <div class="download-card">
+          <div class="dl-card-icon">📦</div>
+          <h3 class="dl-title">Standalone ZIP Archive</h3>
+          <p class="dl-desc">Extracted portable package. Extract to any folder or flash drive and launch <code class="inline-code">Cortex.exe</code> directly.</p>
+          
+          <div class="dl-meta-box">
+            <div class="dl-meta-row"><span>File:</span> <code class="mono-tag">Cortex-1.0.0-win-x64.zip</code></div>
+            <div class="dl-meta-row"><span>Size:</span> <span class="purple">~103.3 MB</span></div>
+            <div class="dl-meta-row"><span>Compatibility:</span> <span>Windows 10 / 11 (x64)</span></div>
+          </div>
+
+          <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex-1.0.0-win-x64.zip" class="btn btn-secondary btn-block" download id="download-zip-btn">
+            <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            <span>Download Standalone (.zip)</span>
+          </a>
+
+          <div class="hash-toggle-wrap">
+            <button class="hash-btn" data-target="hash-zip">View SHA-256 Hash</button>
+            <div class="hash-box" id="hash-zip">
+              <code>SHA256: 7e2a1c8f...cortex-zip-v1.0.0</code>
+              <button class="copy-hash-btn" data-hash="cortex-zip-1.0.0-sha256">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Option 3: Portable Executable -->
+        <div class="download-card">
+          <div class="dl-card-icon">🚀</div>
+          <h3 class="dl-title">Portable Single Executable</h3>
+          <p class="dl-desc">Single standalone executable file. No installation wizard or uninstaller necessary.</p>
+          
+          <div class="dl-meta-box">
+            <div class="dl-meta-row"><span>File:</span> <code class="mono-tag">Cortex 1.0.0.exe</code></div>
+            <div class="dl-meta-row"><span>Size:</span> <span class="green">~104.2 MB</span></div>
+            <div class="dl-meta-row"><span>Compatibility:</span> <span>Windows 10 / 11 (x64)</span></div>
+          </div>
+
+          <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.1.0.0.exe" class="btn btn-secondary btn-block" download id="download-portable-btn">
+            <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            <span>Download Portable (.exe)</span>
+          </a>
+
+          <div class="hash-toggle-wrap">
+            <button class="hash-btn" data-target="hash-portable">View SHA-256 Hash</button>
+            <div class="hash-box" id="hash-portable">
+              <code>SHA256: 9b1c4e7d...cortex-portable-v1.0.0</code>
+              <button class="copy-hash-btn" data-hash="cortex-portable-1.0.0-sha256">Copy</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Install Guide Card -->
+      <div class="install-guide-card">
+        <div class="guide-header">
+          <h3>⚡ Quick Setup Instructions</h3>
+        </div>
+        <div class="guide-steps">
+          <div class="guide-step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <strong>Download &amp; Run</strong>
+              <p>Download either <code class="inline-code">Cortex Setup 1.0.0.exe</code> or unzip <code class="inline-code">Cortex-1.0.0-win-x64.zip</code>.</p>
+            </div>
+          </div>
+          <div class="guide-step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <strong>Review BUIMB License</strong>
+              <p>Review the transparent Open Source &amp; Privacy Agreement in the installer or in the app's Help menu.</p>
+            </div>
+          </div>
+          <div class="guide-step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <strong>Open Workspace &amp; Code</strong>
+              <p>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd> to open any project directory and start building!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Architecture & Developer Section -->
+  <section class="docs-section" id="docs">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">OPEN SOURCE ARCHITECTURE</span>
+        <h2 class="section-title">Engineered with <br /><span class="gradient-text">Modern Web &amp; Desktop Tech</span></h2>
+        <p class="section-subtitle">
+          Built with an enterprise-grade stack designed for security, maintainability, and top-tier execution speed.
+        </p>
+      </div>
+
+      <div class="tech-stack-grid">
+        <div class="tech-item">
+          <div class="tech-logo">⚛️</div>
+          <div class="tech-name">React 18 &amp; TypeScript</div>
+          <p class="tech-desc">Strictly typed component architecture with zero unhandled runtime bugs.</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-logo">⚡</div>
+          <div class="tech-name">Electron &amp; Vite</div>
+          <p class="tech-desc">Hot-module reloading in dev, ultra-compact bundling in production.</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-logo">📝</div>
+          <div class="tech-name">Monaco Editor Core</div>
+          <p class="tech-desc">High-speed editor engine with syntax tokens, code folding, and minimap.</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-logo">🖥️</div>
+          <div class="tech-name">node-pty &amp; xterm.js</div>
+          <p class="tech-desc">Real native pseudo-terminal processes running at 60 FPS.</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-logo">🐻</div>
+          <div class="tech-name">Zustand State Engine</div>
+          <p class="tech-desc">Lightweight, boilerplate-free state management for tabs &amp; workspaces.</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-logo">🛡️</div>
+          <div class="tech-name">Context Isolation IPC</div>
+          <p class="tech-desc">Strict security boundary preventing malicious scripts from accessing raw disk.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">FREQUENTLY ASKED QUESTIONS</span>
+        <h2 class="section-title">Questions &amp; Answers</h2>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Is Cortex free and open source?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! Cortex is developed by BUIMB Research and released under a permissive open-source license. You are free to inspect the source code, modify it, build custom forks, or use it for personal and commercial development.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does Cortex handle telemetry and privacy?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Cortex has <strong>zero hidden telemetry</strong>. We do not collect, transmit, or monitor your source code, keystrokes, or workspace paths. When you use AI features, requests communicate directly with your chosen API provider (OpenAI, Gemini, Anthropic) using your own API key with no BUIMB intermediary servers.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What is the difference between Setup (.exe) and Standalone (.zip)?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>The <strong>Setup installer</strong> registers Cortex with Windows Start Menu, creates desktop shortcuts, and includes an uninstaller. The <strong>ZIP archive</strong> and <strong>Portable .exe</strong> require no installation and can be extracted or run from any folder, USB flash drive, or cloud drive without modifying your Windows registry.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I customize the themes and shortcuts?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, Cortex comes with a curated cyber-dark aesthetic (<code class="inline-code">cortex-dark</code>) with full support for Monaco theme switching and user configuration via <code class="inline-code">cortex.config.json</code> in your local AppData folder.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Terms & Privacy Modal Trigger Section -->
+  <section class="terms-preview-section">
+    <div class="container text-center">
+      <div class="terms-callout">
+        <div class="callout-icon">🛡️</div>
+        <div class="callout-content">
+          <h3>Built on Open Principles &amp; Respect for Privacy</h3>
+          <p>Read the complete Terms and Conditions &amp; Open Source License Agreement drafted by BUIMB Research.</p>
+        </div>
+        <button class="btn btn-secondary" id="open-terms-modal-btn">View Terms &amp; License</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-link">
+            <img src="assets/logo.png" alt="Cortex Logo" class="brand-logo-img" />
+            <span class="brand-title">CORTEX</span>
+          </div>
+          <p class="footer-bio">
+            Lightweight, high-performance desktop code editor &amp; AI-ready IDE developed by <strong>BUIMB Research</strong>.
+          </p>
+          <div class="footer-copy">
+            &copy; 2026 BUIMB Research. Open source under Permissive License.
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="#features">Features</a>
+            <a href="#demo">Live Simulator</a>
+            <a href="#shortcuts">Keyboard Shortcuts</a>
+            <a href="#comparison">Benchmarks</a>
+            <a href="#downloads">Download Center</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>Downloads</h4>
+            <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.Setup.1.0.0.exe" download>Windows Setup (.exe)</a>
+            <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex-1.0.0-win-x64.zip" download>Standalone Archive (.zip)</a>
+            <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.1.0.0.exe" download>Portable Binary (.exe)</a>
+            <a href="https://github.com/yash245-code/Cortex/releases" target="_blank" rel="noopener">Release Notes (v1.0.0)</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>Community &amp; Source</h4>
+            <a href="https://github.com/yash245-code/Cortex" target="_blank" rel="noopener">GitHub Repository</a>
+            <a href="https://github.com/yash245-code/Cortex/issues" target="_blank" rel="noopener">Report an Issue</a>
+            <a href="https://github.com/yash245-code/Cortex-site" target="_blank" rel="noopener">Website Repository</a>
+            <a href="#" id="footer-terms-btn">Terms &amp; Conditions</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-flex">
+          <span>Developed with ❤️ by <a href="https://github.com/yash245-code" target="_blank" class="cyan">Yash.dev</a> / BUIMB Research</span>
+          <div class="status-indicator">
+            <span class="status-dot"></span>
+            <span>All systems operational • v1.0.0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Terms & Conditions Modal -->
+  <div class="modal-backdrop" id="terms-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-icon">🛡️</span>
+          <h3>Terms and Conditions &amp; Open Source License</h3>
+        </div>
+        <button class="modal-close-btn" id="close-terms-modal-btn">&times;</button>
+      </div>
+      <div class="modal-body terms-text-content">
+        <h4>BUIMB Research Open Source License Agreement</h4>
+        <p class="terms-subtitle">Last updated: September 2026 | Developed by BUIMB Research</p>
+
+        <hr class="modal-hr" />
+
+        <h5>1. Permissive Open Source License</h5>
+        <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, subject to the conditions outlined herein.</p>
+
+        <h5>2. Local Execution &amp; Zero Telemetry</h5>
+        <p>BUIMB Research is committed to user privacy and sovereign local computation:</p>
+        <ul>
+          <li><strong>No Code Tracking:</strong> Cortex does not transmit, index, or store your private codebase or keystrokes on remote servers.</li>
+          <li><strong>Local Persistence:</strong> Configuration files, editor workspace caches, and history reside strictly on the user's local disk in <code class="inline-code">%APPDATA%/Cortex</code>.</li>
+          <li><strong>Native Terminal Safety:</strong> Shell sessions executed via <code class="inline-code">node-pty</code> run under the user's local system permissions without external network tunneling.</li>
+        </ul>
+
+        <h5>3. AI Services &amp; Third-Party API Keys</h5>
+        <p>When utilizing AI features within Cortex, all API calls are made directly from your client machine to your specified AI provider using your own API credentials. BUIMB Research operates no proxy servers, intermediate sniffers, or telemetry sinks.</p>
+
+        <h5>4. Disclaimer of Warranty</h5>
+        <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL BUIMB RESEARCH OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="terms-dismiss-btn">I Understand</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
