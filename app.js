@@ -478,8 +478,8 @@ function initDownloadAgreementWall() {
   triggers.forEach(el => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
-      const url = el.dataset.downloadUrl || 'https://github.com/yash245-code/Bodhi/releases/download/v1.0.0-beta.1/Bodhi.Setup.1.0.0-beta.1.exe';
-      const name = el.dataset.downloadName || 'Bodhi Setup 1.0.0-beta.1.exe';
+      const url = el.dataset.downloadUrl || 'https://github.com/yash245-code/Bodhi/releases/download/v1.0.0-beta.1/Bodhi%20Code%20Editor%20Setup%201.0.0-beta.1.exe';
+      const name = el.dataset.downloadName || 'Bodhi Code Editor Setup 1.0.0-beta.1.exe';
       const type = el.dataset.downloadType || 'Windows Package';
       const size = el.dataset.downloadSize || '~104 MB';
 
