@@ -1,5 +1,5 @@
 /**
- * Cortex Code Editor — Landing Page Interactive Engine
+ * Bodhi Code Editor — Landing Page Interactive Engine
  * BUIMB Research (c) 2026
  */
 
@@ -23,26 +23,26 @@ const SIMULATOR_FILES = {
     lang: 'TypeScript React (UTF-8)',
     code: [
       '<span class="syn-kw">import</span> React, { useState, useEffect } <span class="syn-kw">from</span> <span class="syn-str">\'react\'</span>;',
-      '<span class="syn-kw">import</span> { MonacoEditor, TerminalDock, WorkspaceTree } <span class="syn-kw">from</span> <span class="syn-str">\'@cortex/core\'</span>;',
-      '<span class="syn-kw">import</span> { useCortexStore } <span class="syn-kw">from</span> <span class="syn-str">\'./store/cortexStore\'</span>;',
+      '<span class="syn-kw">import</span> { MonacoEditor, TerminalDock, WorkspaceTree } <span class="syn-kw">from</span> <span class="syn-str">\'@bodhi/core\'</span>;',
+      '<span class="syn-kw">import</span> { useBodhiStore } <span class="syn-kw">from</span> <span class="syn-str">\'./store/bodhiStore\'</span>;',
       '',
-      '<span class="syn-comm">// Initialize sovereign, privacy-first Cortex Desktop Editor</span>',
+      '<span class="syn-comm">// Initialize sovereign, privacy-first Bodhi Desktop Editor</span>',
       '<span class="syn-kw">export const</span> <span class="syn-fn">App</span>: React.FC = () =&gt; {',
-      '  <span class="syn-kw">const</span> { activeTab, telemetryEnabled, openFile } = <span class="syn-fn">useCortexStore</span>();',
+      '  <span class="syn-kw">const</span> { activeTab, telemetryEnabled, openFile } = <span class="syn-fn">useBodhiStore</span>();',
       '  <span class="syn-kw">const</span> [isPtyReady, setPtyReady] = <span class="syn-fn">useState</span>(<span class="syn-kw">true</span>);',
       '',
       '  <span class="syn-fn">useEffect</span>(() =&gt; {',
       '    <span class="syn-comm">// 100% Local IPC bridge with zero telemetry tracking</span>',
-      '    window.cortexAPI.<span class="syn-fn">onWorkspaceChange</span>((event) =&gt; {',
+      '    window.bodhiAPI.<span class="syn-fn">onWorkspaceChange</span>((event) =&gt; {',
       '      console.<span class="syn-fn">log</span>(<span class="syn-str">\'[Chokidar IPC] Live File Event:\'</span>, event);',
       '    });',
       '  }, []);',
       '',
       '  <span class="syn-kw">return</span> (',
-      '    &lt;<span class="syn-type">div</span> <span class="syn-prop">className</span>=<span class="syn-str">"cortex-window-root dark-theme"</span>&gt;',
+      '    &lt;<span class="syn-type">div</span> <span class="syn-prop">className</span>=<span class="syn-str">"bodhi-window-root dark-theme"</span>&gt;',
       '      &lt;<span class="syn-type">WorkspaceTree</span> <span class="syn-prop">liveSync</span>={<span class="syn-kw">true</span>} /&gt;',
       '      &lt;<span class="syn-type">MonacoEditor</span>',
-      '        <span class="syn-prop">theme</span>=<span class="syn-str">"cortex-dark"</span>',
+      '        <span class="syn-prop">theme</span>=<span class="syn-str">"bodhi-dark"</span>',
       '        <span class="syn-prop">activeFile</span>={activeTab}',
       '        <span class="syn-prop">options</span>={{ minimap: { enabled: <span class="syn-kw">true</span> }, fontSize: 14 }}',
       '      /&gt;',
@@ -101,21 +101,21 @@ const SIMULATOR_FILES = {
       '',
       '  watcher.<span class="syn-fn">on</span>(<span class="syn-str">\'all\'</span>, (event, filePath) =&gt; {',
       '    <span class="syn-comm">// Instant UI push over type-safe IPC channels</span>',
-      '    win.webContents.<span class="syn-fn">send</span>(<span class="syn-str">\'cortex:workspace-file-changed\'</span>, { event, filePath });',
+      '    win.webContents.<span class="syn-fn">send</span>(<span class="syn-str">\'bodhi:workspace-file-changed\'</span>, { event, filePath });',
       '  });',
       '',
       '  <span class="syn-kw">return</span> watcher;',
       '};'
     ]
   },
-  'cortex-config': {
-    name: 'cortex.config.json',
+  'bodhi-config': {
+    name: 'bodhi.config.json',
     lang: 'JSON (UTF-8)',
     code: [
       '{',
       '  <span class="syn-prop">"version"</span>: <span class="syn-str">"1.0.0"</span>,',
       '  <span class="syn-prop">"editor"</span>: {',
-      '    <span class="syn-prop">"theme"</span>: <span class="syn-str">"cortex-dark"</span>,',
+      '    <span class="syn-prop">"theme"</span>: <span class="syn-str">"bodhi-dark"</span>,',
       '    <span class="syn-prop">"fontSize"</span>: 14,',
       '    <span class="syn-prop">"fontFamily"</span>: <span class="syn-str">"Fira Code, JetBrains Mono, Consolas"</span>,',
       '    <span class="syn-prop">"tabSize"</span>: 2,',
@@ -136,14 +136,14 @@ const SIMULATOR_FILES = {
     name: 'TERMS.md',
     lang: 'Markdown (UTF-8)',
     code: [
-      '<span class="syn-fn"># Cortex Terms &amp; Open Source License Agreement</span>',
+      '<span class="syn-fn"># Bodhi Terms &amp; Open Source License Agreement</span>',
       '',
       '<span class="syn-comm">**Developed and maintained by BUIMB Research.**</span>',
       '',
       '<span class="syn-kw">- Permissive Open-Source Grant:</span> Free for private, commercial, and research use.',
       '<span class="syn-kw">- Sovereign Execution:</span> Zero telemetry, zero code scraping, zero keystroke logging.',
       '<span class="syn-kw">- AI Direct Connect:</span> API keys talk directly to upstream endpoints without BUIMB proxies.',
-      '<span class="syn-kw">- Local Persistence:</span> Configurations stored strictly in %APPDATA%/Cortex.'
+      '<span class="syn-kw">- Local Persistence:</span> Configurations stored strictly in %APPDATA%/Bodhi.'
     ]
   }
 };
@@ -217,7 +217,7 @@ function initTerminalEmulator() {
 
   function handleCommand(rawCmd) {
     const cmd = rawCmd.trim().toLowerCase();
-    appendLog(`<span class="term-prompt">PS C:\\Cortex\\workspace&gt;</span> <span style="color:#fff">${escapeHtml(rawCmd)}</span>`);
+    appendLog(`<span class="term-prompt">PS C:\\Bodhi\\workspace&gt;</span> <span style="color:#fff">${escapeHtml(rawCmd)}</span>`);
 
     if (!cmd) return;
 
@@ -227,7 +227,7 @@ function initTerminalEmulator() {
           <div style="color:#94a3b8; margin: 4px 0;">
             Available interactive commands:<br/>
             - <span class="green">build</span> : Simulate Vite bundle &amp; Electron package build<br/>
-            - <span class="green">features</span> : Display list of core Cortex features<br/>
+            - <span class="green">features</span> : Display list of core Bodhi features<br/>
             - <span class="green">specs</span> : Show current runtime specs and benchmark data<br/>
             - <span class="green">terms</span> : View BUIMB Research Terms &amp; Open Source License<br/>
             - <span class="green">download</span> : Jump directly to download center<br/>
@@ -239,17 +239,17 @@ function initTerminalEmulator() {
 
       case 'build':
       case 'npm run build':
-        appendLog(`<span class="green">⚡ [Cortex Build Pipeline]</span> Starting TypeScript validation...`);
+        appendLog(`<span class="green">⚡ [Bodhi Build Pipeline]</span> Starting TypeScript validation...`);
         setTimeout(() => {
           appendLog(`<span class="green">✔</span> [Renderer] Vite React 18 build complete in 1.42s`);
           appendLog(`<span class="green">✔</span> [Main Process] node-pty &amp; IPC bundle verified (0 errors)`);
-          appendLog(`<span class="purple">📦 Package:</span> Cortex Setup 1.0.0.exe (104.7 MB) &amp; ZIP Archive ready!`);
+          appendLog(`<span class="purple">📦 Package:</span> Bodhi Setup 1.0.0.exe (104.7 MB) &amp; ZIP Archive ready!`);
         }, 500);
         break;
 
       case 'features':
         appendLog(`
-          <span class="green">Cortex Core Features:</span><br/>
+          <span class="green">Bodhi Core Features:</span><br/>
           • Monaco Editor Engine (25+ Languages)<br/>
           • Zero-Lag Native Terminal (node-pty / xterm.js)<br/>
           • Chokidar Real-time File System Sync<br/>
@@ -277,7 +277,7 @@ function initTerminalEmulator() {
         break;
 
       case 'version':
-        appendLog(`<span class="green">Cortex v1.0.0 Stable</span> (BUIMB Research) &mdash; Open Source Permissive License`);
+        appendLog(`<span class="green">Bodhi v1.0.0 Stable</span> (BUIMB Research) &mdash; Open Source Permissive License`);
         break;
 
       case 'clear':
@@ -477,8 +477,8 @@ function initDownloadAgreementWall() {
   triggers.forEach(el => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
-      const url = el.dataset.downloadUrl || 'https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.Setup.1.0.0.exe';
-      const name = el.dataset.downloadName || 'Cortex Setup 1.0.0.exe';
+      const url = el.dataset.downloadUrl || 'https://github.com/yash245-code/Bodhi/releases/download/v1.0.0/Bodhi.Setup.1.0.0.exe';
+      const name = el.dataset.downloadName || 'Bodhi Setup 1.0.0.exe';
       const type = el.dataset.downloadType || 'Windows Package';
       const size = el.dataset.downloadSize || '~104 MB';
 
