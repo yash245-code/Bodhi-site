@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHashViewers();
   initNavbarScroll();
   initDownloadAgreementWall();
+  initCliTabs();
 });
 
 /* ==========================================================================
@@ -113,7 +114,7 @@ const SIMULATOR_FILES = {
     lang: 'JSON (UTF-8)',
     code: [
       '{',
-      '  <span class="syn-prop">"version"</span>: <span class="syn-str">"1.0.0"</span>,',
+      '  <span class="syn-prop">"version"</span>: <span class="syn-str">"1.0.0-beta.1"</span>,',
       '  <span class="syn-prop">"editor"</span>: {',
       '    <span class="syn-prop">"theme"</span>: <span class="syn-str">"bodhi-dark"</span>,',
       '    <span class="syn-prop">"fontSize"</span>: 14,',
@@ -477,8 +478,8 @@ function initDownloadAgreementWall() {
   triggers.forEach(el => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
-      const url = el.dataset.downloadUrl || 'https://github.com/yash245-code/Bodhi/releases/download/v1.0.0/Bodhi.Setup.1.0.0.exe';
-      const name = el.dataset.downloadName || 'Bodhi Setup 1.0.0.exe';
+      const url = el.dataset.downloadUrl || 'https://github.com/yash245-code/Bodhi/releases/download/v1.0.0-beta.1/Bodhi.Setup.1.0.0-beta.1.exe';
+      const name = el.dataset.downloadName || 'Bodhi Setup 1.0.0-beta.1.exe';
       const type = el.dataset.downloadType || 'Windows Package';
       const size = el.dataset.downloadSize || '~104 MB';
 
@@ -597,3 +598,46 @@ function initNavbarScroll() {
     });
   }
 }
+
+/* ==========================================================================
+   9. CLI & Package Manager Tab Switcher
+   ========================================================================== */
+function initCliTabs() {
+  const cliTabs = document.querySelectorAll('.cli-tab-btn');
+  const cliCmdText = document.getElementById('cli-cmd-text');
+  const cliCopyBtn = document.getElementById('cli-copy-btn');
+
+  if (!cliTabs.length || !cliCmdText || !cliCopyBtn) return;
+
+  cliTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      cliTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const cmd = tab.dataset.cmd;
+      if (cmd) {
+        cliCmdText.textContent = cmd;
+        cliCopyBtn.dataset.clipboard = cmd;
+      }
+    });
+  });
+
+  cliCopyBtn.addEventListener('click', () => {
+    const cmd = cliCopyBtn.dataset.clipboard || cliCmdText.textContent;
+    navigator.clipboard.writeText(cmd).then(() => {
+      const origSpan = cliCopyBtn.querySelector('span');
+      if (origSpan) {
+        const origText = origSpan.textContent;
+        origSpan.textContent = 'Copied!';
+        cliCopyBtn.style.background = 'var(--green-primary)';
+        cliCopyBtn.style.color = '#07090e';
+        setTimeout(() => {
+          origSpan.textContent = origText;
+          cliCopyBtn.style.background = '';
+          cliCopyBtn.style.color = '';
+        }, 2000);
+      }
+    });
+  });
+}
+

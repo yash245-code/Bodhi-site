@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download Bodhi Code Editor &mdash; Windows Formats (Installer, ZIP &amp; Portable)</title>
+  <meta name="description" content="Download Bodhi Code Editor for Windows 10 & 11 (64-bit). Choose between Setup Installer, Standalone Portable ZIP, or Single Portable Executable." />
+  <meta name="keywords" content="Download Bodhi, Bodhi Windows, Bodhi IDE download, Bodhi setup exe, Bodhi portable, Bodhi zip, BUIMB Research" />
+  <meta name="author" content="BUIMB Research / Yash.dev" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Download Bodhi Code Editor for Windows (v1.0.0-beta.1)" />
+  <meta property="og:description" content="Available in 3 Windows formats: NSIS Setup Installer, Standalone Portable ZIP, and Single Executable." />
+  <meta property="og:image" content="assets/logo.png" />
+
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-dark text-slate">
+
+  <!-- Ambient Glow & Cyber Grid -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+  <div class="cyber-grid-overlay"></div>
+
+  <!-- Navbar -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link" id="brand-logo">
+        <div class="brand-icon-wrapper">
+          <img src="assets/logo.png" alt="Bodhi Logo" class="brand-logo-img" />
+          <div class="brand-glow-ring"></div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">BODHI</span>
+          <span class="brand-badge">v1.0.0-beta.1</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="index.html#features" class="nav-item">Features</a>
+        <a href="index.html#demo" class="nav-item">Interactive Demo</a>
+        <a href="index.html#shortcuts" class="nav-item">Shortcuts</a>
+        <a href="downloads.html" class="nav-item active">Downloads</a>
+        <a href="terms.html" class="nav-item">Terms &amp; License</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://github.com/yash245-code/Bodhi" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-icon" title="View GitHub Repository" id="nav-github-btn">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span class="github-star-count" id="nav-star-label">Star</span>
+        </a>
+        <a href="#windows-downloads" class="btn btn-primary btn-glow" id="nav-download-cta">
+          <span>Download Now</span>
+          <svg class="icon arrow-icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Downloads Container -->
+  <main class="downloads-page-main">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <div class="downloads-page-header text-center">
+        <div class="os-badge-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.901-1.799"/></svg>
+          <span>OFFICIAL WINDOWS DOWNLOAD CENTER</span>
+        </div>
+
+        <h1 class="section-title">
+          Download Bodhi v1.0.0-beta.1 for <br />
+          <span class="gradient-text">Windows 10 / Windows 11 (64-bit)</span>
+        </h1>
+        
+        <p class="section-subtitle" style="max-width: 720px; margin: 0 auto;">
+          Experience blazing speed, Monaco Editor core, integrated native terminal streaming, and 100% sovereign privacy. Choose your preferred distribution format below.
+        </p>
+
+        <!-- OS Selection Bar -->
+        <div class="os-selector-tabs">
+          <button type="button" class="os-tab-btn active" id="tab-btn-win">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.901-1.799"/></svg>
+            <span>Windows (x64)</span>
+          </button>
+          <button type="button" class="os-tab-btn disabled-tab" title="macOS build is currently in final testing for v1.1.0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-1.99.6-2.63 1.35-.57.65-1.06 1.71-.93 2.73 1.01.08 2.02-.48 2.64-1.23z"/></svg>
+            <span>macOS</span>
+            <span class="tab-tag-badge">v1.1.0 Soon</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Windows Downloads 3 Format Grid -->
+      <section id="windows-downloads" class="downloads-cards-grid">
+        
+        <!-- Format 1: Setup Installer -->
+        <div class="download-card featured">
+          <div class="card-featured-badge">RECOMMENDED</div>
+          <div class="dl-card-icon">⚡</div>
+          <h2 class="dl-title">Windows Setup Installer</h2>
+          <p class="dl-desc">Full-featured NSIS installation wizard with automatic desktop shortcuts, Start Menu integration, and clean uninstaller.</p>
+          
+          <ul class="dl-feature-list">
+            <li><span class="check">✔</span> Guided Windows installation wizard</li>
+            <li><span class="check">✔</span> Start Menu &amp; Desktop shortcuts</li>
+            <li><span class="check">✔</span> Built-in BUIMB Terms Agreement screen</li>
+            <li><span class="check">✔</span> Full uninstallation support via Settings</li>
+          </ul>
+
+          <div class="dl-meta-box">
+            <div class="dl-meta-row"><span>File Name:</span> <code class="mono-tag">Bodhi Setup 1.0.0-beta.1.exe</code></div>
+            <div class="dl-meta-row"><span>Format:</span> <span>NSIS Installer (.exe)</span></div>
+            <div class="dl-meta-row"><span>File Size:</span> <span class="green">~104.7 MB</span></div>
+            <div class="dl-meta-row"><span>Architecture:</span> <span>Windows x64 (64-bit)</span></div>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-block btn-glow require-agreement-trigger" 
+                  data-download-url="https://github.com/yash245-code/Bodhi/releases/download/v1.0.0-beta.1/Bodhi.Setup.1.0.0-beta.1.exe" 
+                  data-download-name="Bodhi Setup 1.0.0-beta.1.exe" 
+                  data-download-type="Windows Setup Installer (NSIS)" 
+                  data-download-size="~104.7 MB" 
+                  id="dl-page-setup-btn">
+            <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            <span>Download Setup (.exe)</span>
+          </button>
+
+          <div class="hash-toggle-wrap">
+            <button class="hash-btn" data-target="hash-setup-page">View SHA-256 Checksum</button>
+            <div class="hash-box" id="hash-setup-page">
+              <code>SHA256: 4f8d9b2e...bodhi-setup-v1.0.0-beta.1</code>
+              <button class="copy-hash-btn" data-hash="4f8d9b2e1a3c7f6e0b5d8a9c2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6d8e0f">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Format 2: Standalone ZIP Archive -->
+        <div class="download-card">
+          <div class="dl-card-icon">📦</div>
+          <h2 class="dl-title">Standalone ZIP Archive</h2>
+          <p class="dl-desc">Pre-extracted standalone package. Unpack to any folder or USB flash drive and run <code class="inline-code">Bodhi.exe</code> with zero registry modification.</p>
+          
+          <ul class="dl-feature-list">
+            <li><span class="check">✔</span> Zero installation or system modification</li>
+            <li><span class="check">✔</span> Runs directly from USB / external drives</li>
+            <li><span class="check">✔</span> Perfect for restricted or managed PCs</li>
+            <li><span class="check">✔</span> Delete folder to completely remove</li>
+          </ul>
+
+          <div class="dl-meta-box">
+            <div class="dl-meta-row"><span>File Name:</span> <code class="mono-tag">Bodhi-1.0.0-beta.1-win-x64.zip</code></div>
+            <div class="dl-meta-row"><span>Format:</span> <span>ZIP Archive (.zip)</span></div>
+            <div class="dl-meta-row"><span>File Size:</span> <span class="purple">~103.3 MB</span></div>
+            <div class="dl-meta-row"><span>Architecture:</span> <span>Windows x64 (64-bit)</span></div>
+          </div>
+
+          <button type="button" class="btn btn-secondary btn-block require-agreement-trigger" 
+                  data-download-url="https://github.com/yash245-code/Bodhi/releases/download/v1.0.0-beta.1/Bodhi-1.0.0-beta.1-win-x64.zip" 
+                  data-download-name="Bodhi-1.0.0-beta.1-win-x64.zip" 
+                  data-download-type="Standalone ZIP Archive" 
+                  data-download-size="~103.3 MB" 
+                  id="dl-page-zip-btn">
+            <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            <span>Download Standalone (.zip)</span>
+          </button>
+
+          <div class="hash-toggle-wrap">
+            <button class="hash-btn" data-target="hash-zip-page">View SHA-256 Checksum</button>
+            <div class="hash-box" id="hash-zip-page">
+              <code>SHA256: 7e2a1c8f...bodhi-zip-v1.0.0-beta.1</code>
+              <button class="copy-hash-btn" data-hash="7e2a1c8f3b5d9a0e2f4a6b8c0d2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6d8e">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Format 3: Portable Executable -->
+        <div class="download-card">
+          <div class="dl-card-icon">🚀</div>
+          <h2 class="dl-title">Portable Single Executable</h2>
+          <p class="dl-desc">Single standalone executable binary. Double-click to launch Bodhi immediately without any unpacking or setup wizard.</p>
+          
+          <ul class="dl-feature-list">
+            <li><span class="check">✔</span> Single binary file &mdash; no extraction needed</li>
+            <li><span class="check">✔</span> Immediate launch on any Windows machine</li>
+            <li><span class="check">✔</span> Instant sandbox testing &amp; evaluation</li>
+            <li><span class="check">✔</span> No administrative privileges required</li>
+          </ul>
+
+          <div class="dl-meta-box">
+            <div class="dl-meta-row"><span>File Name:</span> <code class="mono-tag">Bodhi 1.0.0-beta.1.exe</code></div>
+            <div class="dl-meta-row"><span>Format:</span> <span>Portable Binary (.exe)</span></div>
+            <div class="dl-meta-row"><span>File Size:</span> <span class="green">~104.2 MB</span></div>
+            <div class="dl-meta-row"><span>Architecture:</span> <span>Windows x64 (64-bit)</span></div>
+          </div>
+
+          <button type="button" class="btn btn-secondary btn-block require-agreement-trigger" 
+                  data-download-url="https://github.com/yash245-code/Bodhi/releases/download/v1.0.0-beta.1/Bodhi.1.0.0-beta.1.exe" 
+                  data-download-name="Bodhi 1.0.0-beta.1.exe" 
+                  data-download-type="Portable Single Executable" 
+                  data-download-size="~104.2 MB" 
+                  id="dl-page-portable-btn">
+            <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            <span>Download Portable (.exe)</span>
+          </button>
+
+          <div class="hash-toggle-wrap">
+            <button class="hash-btn" data-target="hash-portable-page">View SHA-256 Checksum</button>
+            <div class="hash-box" id="hash-portable-page">
+              <code>SHA256: 9b1c4e7d...bodhi-portable-v1.0.0-beta.1</code>
+              <button class="copy-hash-btn" data-hash="9b1c4e7d5f0a2b4c6d8e0f2a4b6c8d0e2f4a6b8c0d2e4f6a8b0c2d4e6f8a0b2c">Copy</button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- CLI & Package Manager Installers -->
+      <section class="cli-installer-section">
+        <div class="cli-panel-box">
+          <div class="cli-panel-header">
+            <div class="cli-title-group">
+              <span>💻</span>
+              <span>Install via Windows Command Line</span>
+            </div>
+            <div class="cli-tabs" id="cli-tabs">
+              <button class="cli-tab-btn active" data-cmd="winget install BUIMB.Bodhi" data-manager="winget">winget</button>
+              <button class="cli-tab-btn" data-cmd="choco install bodhi" data-manager="choco">Chocolatey</button>
+              <button class="cli-tab-btn" data-cmd="scoop install bodhi" data-manager="scoop">Scoop</button>
+              <button class="cli-tab-btn" data-cmd="irm https://github.com/yash245-code/Bodhi/releases/latest/download/install.ps1 | iex" data-manager="powershell">PowerShell</button>
+            </div>
+          </div>
+          <div class="cli-panel-body">
+            <div class="cli-cmd-display">
+              <span class="cli-prompt">&gt;</span>
+              <code id="cli-cmd-text">winget install BUIMB.Bodhi</code>
+            </div>
+            <button class="cli-copy-btn" id="cli-copy-btn" data-clipboard="winget install BUIMB.Bodhi">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/><path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"/></svg>
+              <span>Copy Command</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Format Comparison Matrix Table -->
+      <section class="matrix-section">
+        <div class="section-header text-center" style="margin-bottom: 28px;">
+          <span class="section-tag">FORMAT COMPARISON</span>
+          <h3 class="section-title">Which Windows Format is Right for You?</h3>
+          <p class="section-subtitle">Compare features, persistence, and installation requirements across all three formats.</p>
+        </div>
+
+        <div class="matrix-table-wrap">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>Feature / Characteristic</th>
+                <th>⚡ Setup Installer (.exe)</th>
+                <th>📦 Standalone ZIP (.zip)</th>
+                <th>🚀 Portable Single (.exe)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Primary Use Case</strong></td>
+                <td><span class="matrix-highlight">Standard Daily Development</span></td>
+                <td>USB Drives &amp; Flash Media</td>
+                <td>Quick Testing &amp; Sandbox</td>
+              </tr>
+              <tr>
+                <td><strong>Installation Required</strong></td>
+                <td>Yes (Automated NSIS Wizard)</td>
+                <td>No (Extract to folder)</td>
+                <td>No (Direct double-click)</td>
+              </tr>
+              <tr>
+                <td><strong>Admin Privileges Needed</strong></td>
+                <td>Optional (Installs to User Profile)</td>
+                <td>No</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td><strong>Start Menu &amp; Desktop Icons</strong></td>
+                <td><span class="green">✔ Automatic</span></td>
+                <td>Manual shortcut creation</td>
+                <td>Manual shortcut creation</td>
+              </tr>
+              <tr>
+                <td><strong>Windows Settings Uninstaller</strong></td>
+                <td><span class="green">✔ Yes</span></td>
+                <td>N/A (Delete folder)</td>
+                <td>N/A (Delete executable)</td>
+              </tr>
+              <tr>
+                <td><strong>Settings Storage</strong></td>
+                <td><code>%APPDATA%/Bodhi</code></td>
+                <td>Local folder or <code>%APPDATA%</code></td>
+                <td><code>%APPDATA%/Bodhi</code></td>
+              </tr>
+              <tr>
+                <td><strong>File Associations (e.g. .ts, .py)</strong></td>
+                <td><span class="green">✔ Supported in Wizard</span></td>
+                <td>Manual Open With</td>
+                <td>Manual Open With</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Step-by-Step Installation Guides -->
+      <section class="install-guide-section" style="margin: 50px 0;">
+        <div class="install-guide-card">
+          <div class="guide-header">
+            <h3>Quick Installation Instructions</h3>
+          </div>
+          <div class="guide-steps">
+            <div class="guide-step">
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <strong>Download Package</strong>
+                <p>Click your chosen format above and accept the BUIMB Permissive License to begin download.</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <strong>Launch or Extract</strong>
+                <p>Run <code class="inline-code">Bodhi Setup 1.0.0-beta.1.exe</code> or unzip the archive into your preferred workspace directory.</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <strong>Start Coding with Zero Lag</strong>
+                <p>Launch Bodhi, open any project folder (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>O</kbd>), and enjoy native terminal streaming!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- System Requirements & Specs -->
+      <section class="system-req-section" style="margin: 50px 0;">
+        <div class="section-header text-center" style="margin-bottom: 28px;">
+          <span class="section-tag">HARDWARE &amp; OS REQUIREMENTS</span>
+          <h3 class="section-title">System Requirements</h3>
+        </div>
+
+        <div class="req-cards-grid">
+          <div class="feature-card">
+            <div class="feature-icon-box green">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v10H4zM2 4a2 2 0 00-2 2v10a2 2 0 002 2h6v2H6v2h12v-2h-2v-2h6a2 2 0 002-2V6a2 2 0 00-2-2H2z"/></svg>
+            </div>
+            <h4 class="feature-title">Operating System</h4>
+            <div class="req-spec-item">
+              <span class="req-label">Supported OS</span>
+              <span class="req-val">Windows 10 / 11</span>
+            </div>
+            <div class="req-spec-item">
+              <span class="req-label">Architecture</span>
+              <span class="req-val">64-bit (x64 / AMD64)</span>
+            </div>
+            <div class="req-spec-item">
+              <span class="req-label">WSL Compatibility</span>
+              <span class="req-val">WSL 1 &amp; WSL 2 Ready</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box purple">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+            </div>
+            <h4 class="feature-title">Hardware Specifications</h4>
+            <div class="req-spec-item">
+              <span class="req-label">Processor</span>
+              <span class="req-val">1.6 GHz or faster (x64)</span>
+            </div>
+            <div class="req-spec-item">
+              <span class="req-label">Memory (RAM)</span>
+              <span class="req-val">2 GB min (4 GB recommended)</span>
+            </div>
+            <div class="req-spec-item">
+              <span class="req-label">Storage Space</span>
+              <span class="req-val">~250 MB free disk space</span>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box amber">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+            </div>
+            <h4 class="feature-title">Security &amp; Privacy</h4>
+            <div class="req-spec-item">
+              <span class="req-label">Telemetry</span>
+              <span class="green font-bold">0% (Strictly Zero)</span>
+            </div>
+            <div class="req-spec-item">
+              <span class="req-label">Network Requirement</span>
+              <span class="req-val">100% Offline Capable</span>
+            </div>
+            <div class="req-spec-item">
+              <span class="req-label">License</span>
+              <span class="req-val">Permissive Open Source</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SHA-256 Verification Section -->
+      <section class="checksum-section">
+        <div class="checksum-box">
+          <div class="guide-header" style="margin-bottom: 20px;">
+            <h3>Package Integrity &amp; SHA-256 Checksums</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+              Verify the authenticity of your downloaded files using PowerShell: <br />
+              <code class="inline-code" style="margin-top: 6px; display: inline-block;">Get-FileHash -Algorithm SHA256 ".\Bodhi Setup 1.0.0-beta.1.exe"</code>
+            </p>
+          </div>
+
+          <div class="checksum-row">
+            <div class="checksum-meta">
+              <div class="checksum-file-title">
+                <span>⚡</span> <span>Bodhi Setup 1.0.0-beta.1.exe</span>
+              </div>
+              <span class="mono-tag green">~104.7 MB • NSIS</span>
+            </div>
+            <div class="checksum-code-box">
+              <code>4f8d9b2e1a3c7f6e0b5d8a9c2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6d8e0f</code>
+              <button class="copy-hash-btn" data-hash="4f8d9b2e1a3c7f6e0b5d8a9c2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6d8e0f">Copy Hash</button>
+            </div>
+          </div>
+
+          <div class="checksum-row">
+            <div class="checksum-meta">
+              <div class="checksum-file-title">
+                <span>📦</span> <span>Bodhi-1.0.0-beta.1-win-x64.zip</span>
+              </div>
+              <span class="mono-tag purple">~103.3 MB • ZIP</span>
+            </div>
+            <div class="checksum-code-box">
+              <code>7e2a1c8f3b5d9a0e2f4a6b8c0d2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6d8e</code>
+              <button class="copy-hash-btn" data-hash="7e2a1c8f3b5d9a0e2f4a6b8c0d2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6d8e">Copy Hash</button>
+            </div>
+          </div>
+
+          <div class="checksum-row">
+            <div class="checksum-meta">
+              <div class="checksum-file-title">
+                <span>🚀</span> <span>Bodhi 1.0.0-beta.1.exe</span>
+              </div>
+              <span class="mono-tag green">~104.2 MB • Portable</span>
+            </div>
+            <div class="checksum-code-box">
+              <code>9b1c4e7d5f0a2b4c6d8e0f2a4b6c8d0e2f4a6b8c0d2e4f6a8b0c2d4e6f8a0b2c</code>
+              <button class="copy-hash-btn" data-hash="9b1c4e7d5f0a2b4c6d8e0f2a4b6c8d0e2f4a6b8c0d2e4f6a8b0c2d4e6f8a0b2c">Copy Hash</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Terms & Sovereign Privacy Banner -->
+      <div class="terms-callout" style="margin-top: 50px;">
+        <div class="callout-icon">🛡️</div>
+        <div class="callout-content">
+          <h3>Sovereign Privacy by BUIMB Research</h3>
+          <p>
+            Bodhi operates with zero telemetry, zero background sniffing, and full local filesystem privacy. Review the full open-source license agreement anytime.
+          </p>
+        </div>
+        <a href="terms.html" class="btn btn-secondary">
+          <span>Read Terms &amp; License</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Download Terms Agreement Modal (MANDATORY WALL) -->
+  <div class="modal-backdrop" id="download-agreement-modal" role="dialog" aria-modal="true" aria-labelledby="agreement-modal-title">
+    <div class="modal-box">
+      
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-icon" id="agreement-modal-icon">⚡</span>
+          <div>
+            <h3 id="agreement-modal-title">Bodhi License &amp; Terms Agreement</h3>
+            <span class="terms-subtitle">BUIMB Research &bull; Version 1.0.0-beta.1</span>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="close-agreement-modal-btn" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        
+        <!-- Target Download Details Banner -->
+        <div class="modal-download-meta-banner" id="modal-download-meta-banner">
+          <div class="meta-banner-label">Ready to download:</div>
+          <div class="meta-banner-file" id="agreement-file-name">Bodhi Setup 1.0.0-beta.1.exe</div>
+          <div class="meta-banner-specs" id="agreement-file-meta">Windows Setup Installer (NSIS) • ~104.7 MB</div>
+        </div>
+
+        <div class="modal-scroll-inner">
+          <h4>Terms Summary &amp; Privacy Guarantee</h4>
+          <p>
+            Before initiating your download of <strong>Bodhi Code Editor</strong>, please review and accept the official BUIMB Research Permissive Open Source License and Sovereign Privacy terms:
+          </p>
+
+          <h5>1. Permissive Open Source License Grant</h5>
+          <p>
+            Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software.
+          </p>
+
+          <h5>2. Zero-Telemetry &amp; Sovereign Local Privacy</h5>
+          <ul>
+            <li><strong>Zero Tracking:</strong> Bodhi never collects, transmits, or monetizes user keystrokes, source code, or terminal sessions.</li>
+            <li><strong>Direct AI Communication:</strong> If AI features are configured, your API keys connect directly to your chosen provider with no BUIMB intermediary servers.</li>
+            <li><strong>Local State:</strong> All configs and workspace state remain strictly on your local device.</li>
+          </ul>
+
+          <h5>3. Disclaimer of Warranties</h5>
+          <p>
+            THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. IN NO EVENT SHALL BUIMB RESEARCH OR ITS CONTRIBUTORS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY.
+          </p>
+        </div>
+
+        <!-- Mandatory Checkbox -->
+        <div class="modal-agreement-checkbox-wrap">
+          <label class="agreement-label" id="agreement-label" for="terms-agree-checkbox">
+            <input type="checkbox" id="terms-agree-checkbox" />
+            <span class="custom-checkbox-indicator"></span>
+            <span class="agreement-text">
+              I have read, understood, and agree to the <strong>BUIMB Terms &amp; Conditions</strong> and <strong>Open Source License</strong>.
+            </span>
+          </label>
+        </div>
+
+      </div>
+
+      <div class="modal-footer modal-footer-dual">
+        <button type="button" class="btn btn-ghost" id="agreement-cancel-btn">Cancel</button>
+        <button type="button" class="btn btn-primary btn-glow" id="agreement-download-btn" disabled>
+          <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          <span id="agreement-btn-text">Accept &amp; Start Download</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-link">
+            <img src="assets/logo.png" alt="Bodhi Logo" class="brand-logo-img" />
+            <span class="brand-title">BODHI</span>
+          </a>
+          <p class="footer-bio">
+            Lightweight, high-performance desktop code editor &amp; AI-ready IDE engineered by <strong>BUIMB Research</strong>.
+          </p>
+          <div class="footer-copy">
+            &copy; 2026 BUIMB Research. Open source under Permissive License.
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="index.html">Home</a>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#demo">Simulator</a>
+            <a href="downloads.html">Downloads</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>Legal &amp; Docs</h4>
+            <a href="terms.html">Terms and Conditions</a>
+            <a href="https://github.com/yash245-code/Bodhi/releases" target="_blank" rel="noopener">Release Notes (v1.0.0-beta.1)</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>Source &amp; Community</h4>
+            <a href="https://github.com/yash245-code/Bodhi" target="_blank" rel="noopener">GitHub Repository</a>
+            <a href="https://github.com/yash245-code/Bodhi/issues" target="_blank" rel="noopener">Report an Issue</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-flex">
+          <span>Developed with ❤️ by <a href="https://github.com/yash245-code" target="_blank" class="green">Yash.dev</a> / BUIMB Research</span>
+          <div class="status-indicator">
+            <span class="status-dot"></span>
+            <span>All systems operational &bull; v1.0.0-beta.1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

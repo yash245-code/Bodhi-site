@@ -1,6 +1,6 @@
-# Bodhi v1.0.0 — Initial Stable Release
+# Bodhi v1.0.0-beta.1 — Initial Beta Release
 
-## 🚀 Welcome to Bodhi v1.0.0
+## 🚀 Welcome to Bodhi v1.0.0-beta.1
 
 **Bodhi** is a next-generation lightweight, high-performance desktop code editor and AI-ready IDE engineered by **BUIMB Research**. Built on Electron, React 18, TypeScript, Monaco Editor, and native `node-pty` terminal streaming, Bodhi delivers blazing speed with strict user privacy and zero hidden telemetry.
 
@@ -10,10 +10,10 @@
 
 | Field | Value |
 |---|---|
-| **Tag Version** | `v1.0.0` |
-| **Release Title** | `Bodhi v1.0.0 — Initial Stable Release` |
+| **Tag Version** | `v1.0.0-beta.1` |
+| **Release Title** | `Bodhi v1.0.0-beta.1 — Initial Beta Release` |
 | **Target Branch** | `main` |
-| **Release Labels** | `release`, `v1.0.0`, `stable`, `windows-x64`, `electron`, `monaco`, `buimb-research` |
+| **Release Labels** | `release`, `v1.0.0-beta.1`, `beta`, `windows-x64`, `electron`, `monaco`, `buimb-research` |
 
 ---
 
@@ -68,9 +68,9 @@ Attach these 3 files from `c:\Users\rawat\BUIMB Projects\Bodhi\dist\`:
 
 | Asset | Format | Size | Description |
 |---|---|---|---|
-| **`Bodhi Setup 1.0.0.exe`** | NSIS Installer | ~104.7 MB | Full Windows installer with Start Menu & desktop shortcuts |
-| **`Bodhi-1.0.0-win-x64.zip`** | ZIP Archive | ~103.3 MB | Standalone portable package (extract and run) |
-| **`Bodhi 1.0.0.exe`** | Portable Binary | ~104.2 MB | Single executable, zero installation required |
+| **`Bodhi Setup 1.0.0-beta.1.exe`** | NSIS Installer | ~104.7 MB | Full Windows installer with Start Menu & desktop shortcuts |
+| **`Bodhi-1.0.0-beta.1-win-x64.zip`** | ZIP Archive | ~103.3 MB | Standalone portable package (extract and run) |
+| **`Bodhi 1.0.0-beta.1.exe`** | Portable Binary | ~104.2 MB | Single executable, zero installation required |
 
 ---
 
@@ -83,4 +83,4 @@ Attach these 3 files from `c:\Users\rawat\BUIMB Projects\Bodhi\dist\`:
 
 ---
 
-**Full Changelog**: https://github.com/yash245-code/Bodhi/commits/v1.0.0
+**Full Changelog**: https://github.com/yash245-code/Bodhi/commits/v1.0.0-beta.1

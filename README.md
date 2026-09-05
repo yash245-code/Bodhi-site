@@ -23,10 +23,10 @@ This repository hosts the official modern, high-performance landing page and dow
 - **Modern Cyberpunk Obsidian Aesthetic**: Glassmorphic dark theme with vibrant cyan (`#00f0ff`) and purple glow accents.
 - **Interactive Code Editor Simulator**: Switch between file tabs (`App.tsx`, `terminalService.ts`, `fileWatcher.ts`, `bodhi.config.json`) with line numbering and syntax styling.
 - **Interactive In-Browser Terminal**: Test interactive commands (`help`, `features`, `specs`, `build`, `download`, `clear`) right on the landing page.
-- **Direct Download Matrix**:
-  - Windows Setup Installer (`Bodhi Setup 1.0.0.exe`)
-  - Standalone Portable Archive (`Bodhi-1.0.0-win-x64.zip`)
-  - Portable Single Executable (`Bodhi 1.0.0.exe`)
+- **Direct Download Matrix & Dedicated Download Center**:
+  - Windows Setup Installer (`Bodhi Setup 1.0.0-beta.1.exe`)
+  - Standalone Portable Archive (`Bodhi-1.0.0-beta.1-win-x64.zip`)
+  - Portable Single Executable (`Bodhi 1.0.0-beta.1.exe`)
 - **Keyboard Shortcuts Engine**: Interactive searchable and categorizable shortcuts list.
 - **Performance Benchmark Comparison**: Startup speed and memory footprint matrix.
 - **BUIMB Terms & Conditions Modal**: Transparent local execution and zero-telemetry guarantee.
