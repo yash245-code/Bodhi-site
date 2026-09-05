@@ -68,9 +68,9 @@ Attach these 3 files from `c:\Users\rawat\BUIMB Projects\Bodhi\dist\`:
 
 | Asset | Format | Size | Description |
 |---|---|---|---|
-| **`Bodhi Code Editor Setup 1.0.0-beta.1.exe`** | NSIS Installer | ~104.7 MB | Full Windows installer with Start Menu & desktop shortcuts |
-| **`Bodhi Code Editor 1.0.0-beta.1 Windows (ZIP).zip`** | ZIP Archive | ~103.3 MB | Standalone portable package (extract and run `BodhiCodeEditor.exe`) |
-| **`Bodhi Code Editor 1.0.0-beta.1 Portable.exe`** | Portable Binary | ~104.2 MB | Standalone single-file executable (No installation required) |
+| **`Bodhi.Code.Editor.Setup.1.0.0-beta.1.exe`** | NSIS Installer | ~105.1 MB | Full Windows installer with Start Menu & desktop shortcuts |
+| **`Bodhi-unpacked.zip`** | ZIP Archive | ~143 MB | Standalone portable package (extract and run `BodhiCodeEditor.exe`) |
+| **`Bodhi.Code.Editor.1.0.0-beta.1.Portable.exe`** | Portable Binary | ~104.7 MB | Standalone single-file executable (No installation required) |
 
 ---
 
