@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cortex Code Editor — Fast, Lightweight, Privacy-First Desktop IDE</title>
+  <title>Cortex Code Editor &mdash; Fast, Lightweight, Privacy-First Desktop IDE</title>
   <meta name="description" content="Cortex is a next-generation lightweight desktop code editor engineered with Monaco Editor, zero-lag native terminal, instant file watching, and zero telemetry." />
   <meta name="keywords" content="Cortex, Code Editor, IDE, Monaco Editor, Electron, React, TypeScript, Desktop Editor, Open Source, BUIMB Research" />
   <meta name="author" content="BUIMB Research / Yash.dev" />
   
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Cortex Code Editor — Fast, Lightweight & Privacy-First" />
+  <meta property="og:title" content="Cortex Code Editor &mdash; Fast, Lightweight &amp; Privacy-First" />
   <meta property="og:description" content="Experience instant load times, Monaco engine, native dockable terminal, and zero-telemetry local privacy." />
   <meta property="og:image" content="assets/logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -55,7 +55,7 @@
         <a href="#shortcuts" class="nav-item">Shortcuts</a>
         <a href="#comparison" class="nav-item">Benchmarks</a>
         <a href="#downloads" class="nav-item">Downloads</a>
-        <a href="#docs" class="nav-item">Architecture</a>
+        <a href="terms.html" class="nav-item">Terms &amp; License</a>
       </nav>
 
       <div class="nav-actions">
@@ -102,7 +102,12 @@
       <!-- Primary Action Buttons -->
       <div class="hero-cta-group">
         <div class="download-dropdown-wrapper">
-          <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.Setup.1.0.0.exe" class="btn btn-primary btn-xl btn-glow-lg" id="hero-setup-download" download>
+          <button type="button" class="btn btn-primary btn-xl btn-glow-lg require-agreement-trigger" 
+                  data-download-url="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.Setup.1.0.0.exe" 
+                  data-download-name="Cortex Setup 1.0.0.exe" 
+                  data-download-type="Windows Setup Installer (NSIS)" 
+                  data-download-size="~104.7 MB" 
+                  id="hero-setup-download">
             <div class="btn-icon-box">
               <svg viewBox="0 0 24 24" fill="currentColor" class="icon-win">
                 <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
@@ -112,34 +117,46 @@
               <span class="btn-subtext">Free &amp; Open Source</span>
               <span class="btn-maintext">Download Windows Setup (.exe)</span>
             </div>
-          </a>
+          </button>
           <button class="dropdown-trigger-btn" id="hero-dropdown-trigger" title="More download options">
             <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
           </button>
 
           <!-- Dropdown Menu -->
           <div class="download-dropdown-menu" id="hero-dropdown-menu">
-            <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.Setup.1.0.0.exe" class="dropdown-option" download>
+            <div class="dropdown-option require-agreement-trigger" 
+                 data-download-url="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.Setup.1.0.0.exe" 
+                 data-download-name="Cortex Setup 1.0.0.exe" 
+                 data-download-type="Windows Setup Installer" 
+                 data-download-size="~104.7 MB">
               <div class="opt-icon">⚡</div>
               <div class="opt-details">
                 <span class="opt-title">Windows Installer (.exe) <span class="badge-rec">Recommended</span></span>
-                <span class="opt-meta">Full desktop integration with Terms installer • ~104 MB</span>
+                <span class="opt-meta">Full desktop integration with Terms installer &bull; ~104 MB</span>
               </div>
-            </a>
-            <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex-1.0.0-win-x64.zip" class="dropdown-option" download>
+            </div>
+            <div class="dropdown-option require-agreement-trigger" 
+                 data-download-url="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex-1.0.0-win-x64.zip" 
+                 data-download-name="Cortex-1.0.0-win-x64.zip" 
+                 data-download-type="Standalone ZIP Package" 
+                 data-download-size="~103.3 MB">
               <div class="opt-icon">📦</div>
               <div class="opt-details">
                 <span class="opt-title">Windows Standalone Archive (.zip)</span>
-                <span class="opt-meta">No setup needed. Extract and run anywhere • ~103 MB</span>
+                <span class="opt-meta">No setup needed. Extract and run anywhere &bull; ~103 MB</span>
               </div>
-            </a>
-            <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.1.0.0.exe" class="dropdown-option" download>
+            </div>
+            <div class="dropdown-option require-agreement-trigger" 
+                 data-download-url="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.1.0.0.exe" 
+                 data-download-name="Cortex 1.0.0.exe" 
+                 data-download-type="Portable Executable" 
+                 data-download-size="~104.2 MB">
               <div class="opt-icon">🚀</div>
               <div class="opt-details">
                 <span class="opt-title">Windows Portable (.exe)</span>
-                <span class="opt-meta">Single executable file, zero installation • ~104 MB</span>
+                <span class="opt-meta">Single executable file, zero installation &bull; ~104 MB</span>
               </div>
-            </a>
+            </div>
           </div>
         </div>
 
@@ -158,7 +175,7 @@
           <span>Windows 10 / 11 (64-bit)</span>
         </div>
         <div class="spec-item">
-          <span class="spec-dot cyan"></span>
+          <span class="spec-dot green"></span>
           <span>Zero Telemetry / 100% Local</span>
         </div>
         <div class="spec-item">
@@ -180,7 +197,7 @@
             </div>
             <div class="sim-brand">
               <img src="assets/logo.png" alt="Cortex" class="sim-logo" />
-              <span class="sim-appname">Cortex Editor — Workspace: [src/cortex-core]</span>
+              <span class="sim-appname">Cortex Editor &mdash; Workspace: [src/cortex-core]</span>
             </div>
             <div class="sim-quick-actions">
               <span class="sim-shortcut-badge"><kbd>Ctrl</kbd> + <kbd>P</kbd> Command Palette</span>
@@ -228,7 +245,7 @@
               <div class="sidebar-stats">
                 <div class="stat-row">
                   <span>Engine:</span>
-                  <span class="stat-val cyan">Monaco 0.44</span>
+                  <span class="stat-val green">Monaco 0.44</span>
                 </div>
                 <div class="stat-row">
                   <span>PTY:</span>
@@ -298,7 +315,7 @@
                 </div>
                 <div class="term-body" id="sim-term-output">
                   <div class="term-line banner">Cortex Interactive Terminal Shell v1.0.0 [node-pty stream connected]</div>
-                  <div class="term-line banner">Type <span class="cyan">help</span>, <span class="cyan">features</span>, <span class="cyan">specs</span>, <span class="cyan">build</span>, or <span class="cyan">download</span> below:</div>
+                  <div class="term-line banner">Type <span class="green">help</span>, <span class="green">features</span>, <span class="green">specs</span>, <span class="green">build</span>, or <span class="green">download</span> below:</div>
                   <div class="term-log-entries" id="term-log-entries"></div>
                   <div class="term-input-row">
                     <span class="term-prompt">PS C:\Cortex\workspace&gt;</span>
@@ -318,7 +335,7 @@
                   <span class="sb-item">Spaces: 2</span>
                   <span class="sb-item">UTF-8</span>
                   <span class="sb-item">CRLF</span>
-                  <span class="sb-item cyan">cortex-dark</span>
+                  <span class="sb-item green">cortex-dark</span>
                 </div>
               </div>
 
@@ -346,7 +363,7 @@
         <!-- Card 1 -->
         <div class="feature-card">
           <div class="card-glow-bg"></div>
-          <div class="feature-icon-box cyan">
+          <div class="feature-icon-box green">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="16 18 22 12 16 6"></polyline>
               <polyline points="8 6 2 12 8 18"></polyline>
@@ -426,7 +443,7 @@
         <!-- Card 5 -->
         <div class="feature-card">
           <div class="card-glow-bg"></div>
-          <div class="feature-icon-box blue">
+          <div class="feature-icon-box green">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"></circle>
               <polyline points="12 6 12 12 14 14"></polyline>
@@ -525,14 +542,14 @@
           <tbody>
             <tr>
               <td>Cold Startup Speed</td>
-              <td class="highlight-td"><strong class="cyan">&lt; 0.8s</strong> (Instant)</td>
-              <td>4.5s – 12.0s</td>
+              <td class="highlight-td"><strong class="green">&lt; 0.8s</strong> (Instant)</td>
+              <td>4.5s &ndash; 12.0s</td>
               <td>0.5s</td>
             </tr>
             <tr>
               <td>Idle Memory Footprint</td>
-              <td class="highlight-td"><strong class="cyan">~110 MB</strong></td>
-              <td>600 MB – 1.8 GB</td>
+              <td class="highlight-td"><strong class="green">~110 MB</strong></td>
+              <td>600 MB &ndash; 1.8 GB</td>
               <td>70 MB</td>
             </tr>
             <tr>
@@ -593,14 +610,19 @@
           
           <div class="dl-meta-box">
             <div class="dl-meta-row"><span>File:</span> <code class="mono-tag">Cortex Setup 1.0.0.exe</code></div>
-            <div class="dl-meta-row"><span>Size:</span> <span class="cyan">~104.7 MB</span></div>
+            <div class="dl-meta-row"><span>Size:</span> <span class="green">~104.7 MB</span></div>
             <div class="dl-meta-row"><span>Compatibility:</span> <span>Windows 10 / 11 (x64)</span></div>
           </div>
 
-          <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.Setup.1.0.0.exe" class="btn btn-primary btn-block btn-glow" download id="download-setup-btn">
+          <button type="button" class="btn btn-primary btn-block btn-glow require-agreement-trigger" 
+                  data-download-url="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.Setup.1.0.0.exe" 
+                  data-download-name="Cortex Setup 1.0.0.exe" 
+                  data-download-type="Windows Setup Installer (NSIS)" 
+                  data-download-size="~104.7 MB" 
+                  id="download-setup-btn">
             <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
             <span>Download Setup (.exe)</span>
-          </a>
+          </button>
 
           <div class="hash-toggle-wrap">
             <button class="hash-btn" data-target="hash-setup">View SHA-256 Hash</button>
@@ -623,10 +645,15 @@
             <div class="dl-meta-row"><span>Compatibility:</span> <span>Windows 10 / 11 (x64)</span></div>
           </div>
 
-          <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex-1.0.0-win-x64.zip" class="btn btn-secondary btn-block" download id="download-zip-btn">
+          <button type="button" class="btn btn-secondary btn-block require-agreement-trigger" 
+                  data-download-url="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex-1.0.0-win-x64.zip" 
+                  data-download-name="Cortex-1.0.0-win-x64.zip" 
+                  data-download-type="Standalone ZIP Archive" 
+                  data-download-size="~103.3 MB" 
+                  id="download-zip-btn">
             <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
             <span>Download Standalone (.zip)</span>
-          </a>
+          </button>
 
           <div class="hash-toggle-wrap">
             <button class="hash-btn" data-target="hash-zip">View SHA-256 Hash</button>
@@ -649,10 +676,15 @@
             <div class="dl-meta-row"><span>Compatibility:</span> <span>Windows 10 / 11 (x64)</span></div>
           </div>
 
-          <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.1.0.0.exe" class="btn btn-secondary btn-block" download id="download-portable-btn">
+          <button type="button" class="btn btn-secondary btn-block require-agreement-trigger" 
+                  data-download-url="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.1.0.0.exe" 
+                  data-download-name="Cortex 1.0.0.exe" 
+                  data-download-type="Portable Executable" 
+                  data-download-size="~104.2 MB" 
+                  id="download-portable-btn">
             <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
             <span>Download Portable (.exe)</span>
-          </a>
+          </button>
 
           <div class="hash-toggle-wrap">
             <button class="hash-btn" data-target="hash-portable">View SHA-256 Hash</button>
@@ -803,9 +835,9 @@
         <div class="callout-icon">🛡️</div>
         <div class="callout-content">
           <h3>Built on Open Principles &amp; Respect for Privacy</h3>
-          <p>Read the complete Terms and Conditions &amp; Open Source License Agreement drafted by BUIMB Research.</p>
+          <p>Review the complete Terms and Conditions &amp; Open Source License Agreement drafted by BUIMB Research.</p>
         </div>
-        <button class="btn btn-secondary" id="open-terms-modal-btn">View Terms &amp; License</button>
+        <a href="terms.html" class="btn btn-secondary" id="open-terms-page-btn">View Full Terms &amp; License &rarr;</a>
       </div>
     </div>
   </section>
@@ -839,9 +871,9 @@
 
           <div class="footer-col">
             <h4>Downloads</h4>
-            <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.Setup.1.0.0.exe" download>Windows Setup (.exe)</a>
-            <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex-1.0.0-win-x64.zip" download>Standalone Archive (.zip)</a>
-            <a href="https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.1.0.0.exe" download>Portable Binary (.exe)</a>
+            <a href="#downloads">Windows Setup (.exe)</a>
+            <a href="#downloads">Standalone Archive (.zip)</a>
+            <a href="#downloads">Portable Binary (.exe)</a>
             <a href="https://github.com/yash245-code/Cortex/releases" target="_blank" rel="noopener">Release Notes (v1.0.0)</a>
           </div>
 
@@ -850,58 +882,66 @@
             <a href="https://github.com/yash245-code/Cortex" target="_blank" rel="noopener">GitHub Repository</a>
             <a href="https://github.com/yash245-code/Cortex/issues" target="_blank" rel="noopener">Report an Issue</a>
             <a href="https://github.com/yash245-code/Cortex-site" target="_blank" rel="noopener">Website Repository</a>
-            <a href="#" id="footer-terms-btn">Terms &amp; Conditions</a>
+            <a href="terms.html">Terms &amp; Conditions</a>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
         <div class="footer-bottom-flex">
-          <span>Developed with ❤️ by <a href="https://github.com/yash245-code" target="_blank" class="cyan">Yash.dev</a> / BUIMB Research</span>
+          <span>Developed with ❤️ by <a href="https://github.com/yash245-code" target="_blank" class="green">Yash.dev</a> / BUIMB Research</span>
           <div class="status-indicator">
             <span class="status-dot"></span>
-            <span>All systems operational • v1.0.0</span>
+            <span>All systems operational &bull; v1.0.0</span>
           </div>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Terms & Conditions Modal -->
-  <div class="modal-backdrop" id="terms-modal">
-    <div class="modal-box">
+  <!-- Mandatory Download Terms Agreement Modal -->
+  <div class="modal-backdrop" id="download-agreement-modal">
+    <div class="modal-box agreement-modal-box">
       <div class="modal-header">
         <div class="modal-title-group">
           <span class="modal-icon">🛡️</span>
-          <h3>Terms and Conditions &amp; Open Source License</h3>
+          <h3>Terms Agreement &amp; Download</h3>
         </div>
-        <button class="modal-close-btn" id="close-terms-modal-btn">&times;</button>
+        <button class="modal-close-btn" id="close-agreement-modal-btn">&times;</button>
       </div>
-      <div class="modal-body terms-text-content">
-        <h4>BUIMB Research Open Source License Agreement</h4>
-        <p class="terms-subtitle">Last updated: September 2026 | Developed by BUIMB Research</p>
 
-        <hr class="modal-hr" />
+      <div class="modal-body">
+        <div class="agreement-file-header">
+          <span class="agreement-file-icon" id="agreement-modal-icon">⚡</span>
+          <div class="agreement-file-info">
+            <span class="agreement-file-name" id="agreement-file-name">Cortex Setup 1.0.0.exe</span>
+            <span class="agreement-file-meta" id="agreement-file-meta">Windows Setup Installer &bull; ~104.7 MB</span>
+          </div>
+        </div>
 
-        <h5>1. Permissive Open Source License</h5>
-        <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, subject to the conditions outlined herein.</p>
+        <div class="agreement-terms-snippet">
+          <strong>BUIMB Research License &amp; Privacy Summary:</strong>
+          <ul>
+            <li><strong>Zero Telemetry:</strong> No source code, keystrokes, or workspace paths are collected or transmitted.</li>
+            <li><strong>Permissive Open Source:</strong> Free for personal, commercial, and research development.</li>
+            <li><strong>Direct AI Connection:</strong> User API keys connect directly to upstream AI providers without BUIMB proxies.</li>
+          </ul>
+        </div>
 
-        <h5>2. Local Execution &amp; Zero Telemetry</h5>
-        <p>BUIMB Research is committed to user privacy and sovereign local computation:</p>
-        <ul>
-          <li><strong>No Code Tracking:</strong> Cortex does not transmit, index, or store your private codebase or keystrokes on remote servers.</li>
-          <li><strong>Local Persistence:</strong> Configuration files, editor workspace caches, and history reside strictly on the user's local disk in <code class="inline-code">%APPDATA%/Cortex</code>.</li>
-          <li><strong>Native Terminal Safety:</strong> Shell sessions executed via <code class="inline-code">node-pty</code> run under the user's local system permissions without external network tunneling.</li>
-        </ul>
-
-        <h5>3. AI Services &amp; Third-Party API Keys</h5>
-        <p>When utilizing AI features within Cortex, all API calls are made directly from your client machine to your specified AI provider using your own API credentials. BUIMB Research operates no proxy servers, intermediate sniffers, or telemetry sinks.</p>
-
-        <h5>4. Disclaimer of Warranty</h5>
-        <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL BUIMB RESEARCH OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY.</p>
+        <label class="agreement-checkbox-wrap" id="agreement-label">
+          <input type="checkbox" id="terms-agree-checkbox" class="agreement-checkbox-input" />
+          <span class="agreement-checkbox-label">
+            I have read and agree to the <a href="terms.html" target="_blank" rel="noopener">Terms &amp; Conditions and Open Source License</a>.
+          </span>
+        </label>
       </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" id="terms-dismiss-btn">I Understand</button>
+
+      <div class="modal-footer modal-footer-dual">
+        <button type="button" class="btn btn-secondary" id="agreement-cancel-btn">Cancel</button>
+        <button type="button" class="btn btn-primary btn-glow" id="agreement-download-btn" disabled>
+          <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+          <span id="agreement-btn-text">Accept &amp; Download</span>
+        </button>
       </div>
     </div>
   </div>

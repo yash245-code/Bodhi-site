@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms &amp; Conditions &mdash; Cortex Code Editor (BUIMB Research)</title>
+  <meta name="description" content="Official Terms &amp; Conditions and Open Source License Agreement for Cortex Code Editor by BUIMB Research." />
+  
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-dark text-slate">
+
+  <!-- Ambient Glow & Cyber Grid -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+  <div class="cyber-grid-overlay"></div>
+
+  <!-- Navbar -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link" id="brand-logo">
+        <div class="brand-icon-wrapper">
+          <img src="assets/logo.png" alt="Cortex Logo" class="brand-logo-img" />
+          <div class="brand-glow-ring"></div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">CORTEX</span>
+          <span class="brand-badge">v1.0.0</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="index.html#features" class="nav-item">Features</a>
+        <a href="index.html#demo" class="nav-item">Simulator</a>
+        <a href="index.html#downloads" class="nav-item">Downloads</a>
+        <a href="terms.html" class="nav-item active">Terms &amp; License</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html#downloads" class="btn btn-primary btn-glow">
+          <span>Download Cortex</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Terms Main Container -->
+  <main class="terms-page-main">
+    <div class="container">
+      
+      <div class="terms-page-header text-center">
+        <div class="section-tag">LEGAL &amp; COMPLIANCE</div>
+        <h1 class="section-title">Terms and Conditions &amp; <br /><span class="gradient-text">Open Source License Agreement</span></h1>
+        <p class="section-subtitle">
+          Effective Date: September 2026 &bull; Published by <strong>BUIMB Research</strong> &bull; Version 1.0.0
+        </p>
+      </div>
+
+      <div class="terms-content-card">
+        
+        <div class="terms-summary-callout">
+          <div class="callout-icon">🛡️</div>
+          <div class="callout-text">
+            <h3>Summary of Key Principles</h3>
+            <p>
+              Cortex is free, open-source desktop software developed by <strong>BUIMB Research</strong>. We operate on a strict <strong>Zero Telemetry</strong> principle: your private source code, keystrokes, and workspace files execute locally and are never harvested, monitored, or transmitted to remote servers.
+            </p>
+          </div>
+        </div>
+
+        <hr class="modal-hr" />
+
+        <section class="terms-section-block">
+          <h2>1. Permissive Open Source License Grant</h2>
+          <p>
+            Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+          </p>
+          <p>
+            The copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+          </p>
+        </section>
+
+        <section class="terms-section-block">
+          <h2>2. Local Execution &amp; Zero Telemetry Guarantee</h2>
+          <p>
+            BUIMB Research is strictly committed to sovereign privacy and zero unauthorized tracking:
+          </p>
+          <ul>
+            <li><strong>Zero Remote Telemetry:</strong> Cortex does not collect, record, transmit, or monetize your source code, file structures, terminal streams, or user keystrokes.</li>
+            <li><strong>Local State Persistence:</strong> All workspace caches, editor settings, and configuration parameters reside strictly in local user application storage (<code class="inline-code">%APPDATA%/Cortex</code> on Windows).</li>
+            <li><strong>Native Terminal Security:</strong> Terminal sessions spawned via <code class="inline-code">node-pty</code> execute with standard local user permissions and do not establish hidden backdoors or network tunnels.</li>
+          </ul>
+        </section>
+
+        <section class="terms-section-block">
+          <h2>3. AI Assistant &amp; Third-Party Services</h2>
+          <p>
+            Where AI assistant capabilities are utilized within Cortex:
+          </p>
+          <ul>
+            <li><strong>Direct API Communication:</strong> All requests to AI model providers (e.g., Google Gemini, OpenAI, Anthropic) are initiated directly from your client machine using your own user-provided API credentials.</li>
+            <li><strong>No Intermediary Proxies:</strong> BUIMB Research does not operate intermediary routing servers, sniffers, or proxy servers to inspect your AI prompts or responses.</li>
+            <li><strong>API Key Confidentiality:</strong> API keys entered into Cortex are saved in secure local storage and are never sent to BUIMB Research.</li>
+          </ul>
+        </section>
+
+        <section class="terms-section-block">
+          <h2>4. Security &amp; Process Isolation</h2>
+          <p>
+            Cortex implements standard Electron desktop security architectures:
+          </p>
+          <ul>
+            <li>Strict <code class="inline-code">contextIsolation: true</code> is enforced between the web renderer process and operating system APIs.</li>
+            <li>Zero raw Node.js or filesystem access is exposed to web frame contexts, preventing malicious script injections from compromising your filesystem.</li>
+          </ul>
+        </section>
+
+        <section class="terms-section-block">
+          <h2>5. User Responsibilities</h2>
+          <p>
+            By downloading, installing, or executing Cortex, you agree that:
+          </p>
+          <ul>
+            <li>You will not use the Software to deliberately create malicious software, viruses, or cyber threats.</li>
+            <li>You are responsible for managing your own source code backups and version control repositories.</li>
+            <li>You will comply with applicable local and international laws governing software usage and cryptography.</li>
+          </ul>
+        </section>
+
+        <section class="terms-section-block">
+          <h2>6. Disclaimer of Warranties &amp; Limitation of Liability</h2>
+          <div class="legal-disclaimer-box">
+            <p>
+              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NONINFRINGEMENT.
+            </p>
+            <p>
+              IN NO EVENT SHALL BUIMB RESEARCH, ITS AUTHORS, OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+            </p>
+          </div>
+        </section>
+
+        <section class="terms-section-block">
+          <h2>7. Updates to Terms</h2>
+          <p>
+            BUIMB Research may update these terms in future versions of Cortex to reflect architectural enhancements or new features. Continued use of updated releases constitutes acceptance of revised terms.
+          </p>
+        </section>
+
+        <div class="terms-action-footer">
+          <a href="index.html#downloads" class="btn btn-primary btn-xl btn-glow">
+            <span>Accept Terms &amp; Download Cortex</span>
+          </a>
+          <a href="index.html" class="btn btn-secondary btn-xl">
+            <span>Return to Home</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-link">
+            <img src="assets/logo.png" alt="Cortex Logo" class="brand-logo-img" />
+            <span class="brand-title">CORTEX</span>
+          </div>
+          <p class="footer-bio">
+            Lightweight, high-performance desktop code editor &amp; AI-ready IDE developed by <strong>BUIMB Research</strong>.
+          </p>
+          <div class="footer-copy">
+            &copy; 2026 BUIMB Research. Open source under Permissive License.
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="index.html">Home</a>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#demo">Simulator</a>
+            <a href="index.html#downloads">Downloads</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>Legal &amp; Docs</h4>
+            <a href="terms.html">Terms and Conditions</a>
+            <a href="https://github.com/yash245-code/Cortex/releases" target="_blank" rel="noopener">Release Notes (v1.0.0)</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>Source &amp; Community</h4>
+            <a href="https://github.com/yash245-code/Cortex" target="_blank" rel="noopener">GitHub Repository</a>
+            <a href="https://github.com/yash245-code/Cortex/issues" target="_blank" rel="noopener">Report an Issue</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-flex">
+          <span>Developed with ❤️ by <a href="https://github.com/yash245-code" target="_blank" class="green">Yash.dev</a> / BUIMB Research</span>
+          <div class="status-indicator">
+            <span class="status-dot"></span>
+            <span>All systems operational &bull; v1.0.0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

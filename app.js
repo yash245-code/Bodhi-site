@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initShortcutsCatalog();
   initFaqAccordion();
   initDownloadDropdown();
-  initTermsModal();
   initHashViewers();
   initNavbarScroll();
+  initDownloadAgreementWall();
 });
 
 /* ==========================================================================
@@ -157,7 +157,6 @@ function initEditorSimulator() {
   function renderFile(fileKey) {
     const file = SIMULATOR_FILES[fileKey] || SIMULATOR_FILES['app-tsx'];
     
-    // Render lines
     if (displayContainer) {
       displayContainer.innerHTML = file.code.map((line, idx) => `
         <div class="code-line">
@@ -171,18 +170,15 @@ function initEditorSimulator() {
       breadcrumbEl.textContent = file.name;
     }
 
-    // Sync active state in tree
     treeFiles.forEach(el => {
       el.classList.toggle('active', el.dataset.file === fileKey);
     });
 
-    // Sync active state in tabs
     tabButtons.forEach(btn => {
       btn.classList.toggle('active', btn.dataset.tab === fileKey);
     });
   }
 
-  // Click handlers on sidebar files
   treeFiles.forEach(item => {
     item.addEventListener('click', () => {
       const key = item.dataset.file;
@@ -190,7 +186,6 @@ function initEditorSimulator() {
     });
   });
 
-  // Click handlers on tabs
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       const key = btn.dataset.tab;
@@ -198,7 +193,6 @@ function initEditorSimulator() {
     });
   });
 
-  // Initial render
   renderFile('app-tsx');
 }
 
@@ -232,19 +226,20 @@ function initTerminalEmulator() {
         appendLog(`
           <div style="color:#94a3b8; margin: 4px 0;">
             Available interactive commands:<br/>
-            - <span class="cyan">build</span> : Simulate Vite bundle &amp; Electron package build<br/>
-            - <span class="cyan">features</span> : Display list of core Cortex features<br/>
-            - <span class="cyan">specs</span> : Show current runtime specs and benchmark data<br/>
-            - <span class="cyan">download</span> : Jump directly to download center<br/>
-            - <span class="cyan">version</span> : Show version and license information<br/>
-            - <span class="cyan">clear</span> : Clear current terminal log
+            - <span class="green">build</span> : Simulate Vite bundle &amp; Electron package build<br/>
+            - <span class="green">features</span> : Display list of core Cortex features<br/>
+            - <span class="green">specs</span> : Show current runtime specs and benchmark data<br/>
+            - <span class="green">terms</span> : View BUIMB Research Terms &amp; Open Source License<br/>
+            - <span class="green">download</span> : Jump directly to download center<br/>
+            - <span class="green">version</span> : Show version and license information<br/>
+            - <span class="green">clear</span> : Clear current terminal log
           </div>
         `);
         break;
 
       case 'build':
       case 'npm run build':
-        appendLog(`<span class="cyan">⚡ [Cortex Build Pipeline]</span> Starting TypeScript validation...`);
+        appendLog(`<span class="green">⚡ [Cortex Build Pipeline]</span> Starting TypeScript validation...`);
         setTimeout(() => {
           appendLog(`<span class="green">✔</span> [Renderer] Vite React 18 build complete in 1.42s`);
           appendLog(`<span class="green">✔</span> [Main Process] node-pty &amp; IPC bundle verified (0 errors)`);
@@ -254,7 +249,7 @@ function initTerminalEmulator() {
 
       case 'features':
         appendLog(`
-          <span class="cyan">Cortex Core Features:</span><br/>
+          <span class="green">Cortex Core Features:</span><br/>
           • Monaco Editor Engine (25+ Languages)<br/>
           • Zero-Lag Native Terminal (node-pty / xterm.js)<br/>
           • Chokidar Real-time File System Sync<br/>
@@ -267,8 +262,13 @@ function initTerminalEmulator() {
         appendLog(`
           <span class="purple">System Specs:</span> Windows 10/11 x64 | Electron 31 | React 18 | TypeScript 5<br/>
           <span class="green">Telemetry:</span> DISABLED (0 bytes sent)<br/>
-          <span class="cyan">Memory:</span> ~110 MB idle footprint
+          <span class="green">Memory:</span> ~110 MB idle footprint
         `);
+        break;
+
+      case 'terms':
+      case 'license':
+        appendLog(`<span class="green">✔ BUIMB Research Open Source License:</span> Permissive grant. 100% local privacy guarantee.`);
         break;
 
       case 'download':
@@ -277,7 +277,7 @@ function initTerminalEmulator() {
         break;
 
       case 'version':
-        appendLog(`<span class="cyan">Cortex v1.0.0 Stable</span> (BUIMB Research) — Open Source Permissive License`);
+        appendLog(`<span class="green">Cortex v1.0.0 Stable</span> (BUIMB Research) &mdash; Open Source Permissive License`);
         break;
 
       case 'clear':
@@ -286,7 +286,7 @@ function initTerminalEmulator() {
         break;
 
       default:
-        appendLog(`<span class="red">Command not recognized: '${escapeHtml(rawCmd)}'.</span> Type <span class="cyan">'help'</span> for available commands.`);
+        appendLog(`<span class="red">Command not recognized: '${escapeHtml(rawCmd)}'.</span> Type <span class="green">'help'</span> for available commands.`);
     }
   }
 
@@ -429,41 +429,109 @@ function initDownloadDropdown() {
 }
 
 /* ==========================================================================
-   6. Terms & License Modal
+   6. Mandatory Terms Agreement & Download Flow
    ========================================================================== */
-function initTermsModal() {
-  const modal = document.getElementById('terms-modal');
-  const openBtn = document.getElementById('open-terms-modal-btn');
-  const footerTermsBtn = document.getElementById('footer-terms-btn');
-  const closeBtn = document.getElementById('close-terms-modal-btn');
-  const dismissBtn = document.getElementById('terms-dismiss-btn');
+function initDownloadAgreementWall() {
+  const modal = document.getElementById('download-agreement-modal');
+  const closeBtn = document.getElementById('close-agreement-modal-btn');
+  const cancelBtn = document.getElementById('agreement-cancel-btn');
+  const downloadBtn = document.getElementById('agreement-download-btn');
+  const checkbox = document.getElementById('terms-agree-checkbox');
+  const labelWrap = document.getElementById('agreement-label');
 
-  function open() {
-    if (modal) modal.classList.add('open');
-  }
-  function close() {
-    if (modal) modal.classList.remove('open');
+  const fileNameEl = document.getElementById('agreement-file-name');
+  const fileMetaEl = document.getElementById('agreement-file-meta');
+  const modalIconEl = document.getElementById('agreement-modal-icon');
+
+  if (!modal || !downloadBtn || !checkbox) return;
+
+  let pendingDownloadUrl = '';
+  let pendingDownloadName = '';
+
+  function openModal(url, name, type, size) {
+    pendingDownloadUrl = url;
+    pendingDownloadName = name;
+
+    if (fileNameEl) fileNameEl.textContent = name;
+    if (fileMetaEl) fileMetaEl.textContent = `${type} • ${size}`;
+
+    if (modalIconEl) {
+      if (name.endsWith('.zip')) modalIconEl.textContent = '📦';
+      else if (name.includes('Setup')) modalIconEl.textContent = '⚡';
+      else modalIconEl.textContent = '🚀';
+    }
+
+    checkbox.checked = false;
+    downloadBtn.disabled = true;
+    labelWrap?.classList.remove('checked');
+
+    modal.classList.add('open');
   }
 
-  if (openBtn) openBtn.addEventListener('click', open);
-  if (footerTermsBtn) {
-    footerTermsBtn.addEventListener('click', (e) => {
+  function closeModal() {
+    modal.classList.remove('open');
+  }
+
+  // Attach triggers to all download buttons
+  const triggers = document.querySelectorAll('.require-agreement-trigger');
+  triggers.forEach(el => {
+    el.addEventListener('click', (e) => {
       e.preventDefault();
-      open();
-    });
-  }
-  if (closeBtn) closeBtn.addEventListener('click', close);
-  if (dismissBtn) dismissBtn.addEventListener('click', close);
+      const url = el.dataset.downloadUrl || 'https://github.com/yash245-code/Cortex/releases/download/v1.0.0/Cortex.Setup.1.0.0.exe';
+      const name = el.dataset.downloadName || 'Cortex Setup 1.0.0.exe';
+      const type = el.dataset.downloadType || 'Windows Package';
+      const size = el.dataset.downloadSize || '~104 MB';
 
-  if (modal) {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) close();
+      // Close dropdown if open
+      const dropdown = document.getElementById('hero-dropdown-menu');
+      if (dropdown) dropdown.classList.remove('show');
+
+      openModal(url, name, type, size);
     });
-  }
+  });
+
+  // Checkbox toggle handler
+  checkbox.addEventListener('change', () => {
+    downloadBtn.disabled = !checkbox.checked;
+    if (checkbox.checked) {
+      labelWrap?.classList.add('checked');
+    } else {
+      labelWrap?.classList.remove('checked');
+    }
+  });
+
+  // Execute download on accept
+  downloadBtn.addEventListener('click', () => {
+    if (!checkbox.checked || !pendingDownloadUrl) return;
+
+    // Trigger download
+    const link = document.createElement('a');
+    link.href = pendingDownloadUrl;
+    link.setAttribute('download', pendingDownloadName);
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Provide visual confirmation
+    const origText = downloadBtn.innerHTML;
+    downloadBtn.innerHTML = '<span>✔ Starting Download...</span>';
+    setTimeout(() => {
+      closeModal();
+      downloadBtn.innerHTML = origText;
+    }, 1200);
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
-      close();
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeModal();
     }
   });
 }
@@ -524,7 +592,7 @@ function initNavbarScroll() {
         navMenu.style.right = '0';
         navMenu.style.background = '#090d16';
         navMenu.style.padding = '20px';
-        navMenu.style.borderBottom = '1px solid rgba(0, 240, 255, 0.3)';
+        navMenu.style.borderBottom = '1px solid rgba(0, 229, 153, 0.3)';
       }
     });
   }

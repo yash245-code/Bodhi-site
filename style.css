@@ -214,6 +214,13 @@ kbd {
   box-shadow: 0 6px 28px rgba(0, 229, 153, 0.45);
   transform: translateY(-2px);
 }
+.btn-primary:disabled, .btn-primary.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+  filter: grayscale(0.5);
+}
 
 .btn-glow {
   position: relative;
@@ -229,7 +236,7 @@ kbd {
   transition: opacity var(--transition-base);
   filter: blur(8px);
 }
-.btn-glow:hover::after {
+.btn-glow:hover:not(:disabled):not(.disabled)::after {
   opacity: 0.7;
 }
 
@@ -562,6 +569,7 @@ kbd {
   text-decoration: none;
   color: var(--text-main);
   transition: background var(--transition-fast);
+  cursor: pointer;
 }
 .dropdown-option:hover {
   background: rgba(0, 229, 153, 0.08);
@@ -1563,6 +1571,203 @@ section {
 .callout-content p { color: var(--text-muted); font-size: 0.92rem; }
 
 /* ==========================================================================
+   Terms Page Specific Styles (terms.html)
+   ========================================================================== */
+.terms-page-main {
+  padding: 140px 0 80px;
+}
+
+.terms-page-header {
+  margin-bottom: 48px;
+}
+
+.terms-content-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 44px;
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-card);
+}
+
+.terms-summary-callout {
+  background: rgba(0, 229, 153, 0.06);
+  border: 1px solid rgba(0, 229, 153, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+.terms-summary-callout .callout-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+.terms-summary-callout h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--green-primary);
+  margin-bottom: 8px;
+}
+.terms-summary-callout p {
+  font-size: 0.94rem;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.terms-section-block {
+  margin-bottom: 36px;
+  padding: 0;
+}
+.terms-section-block h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: #fff;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.terms-section-block p {
+  color: var(--text-muted);
+  font-size: 0.96rem;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+.terms-section-block ul {
+  padding-left: 24px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+.terms-section-block li {
+  margin-bottom: 8px;
+}
+
+.legal-disclaimer-box {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  color: #cbd5e1;
+  line-height: 1.65;
+}
+
+.terms-action-footer {
+  margin-top: 48px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ==========================================================================
+   Agreement Confirmation Modal (Download Wall)
+   ========================================================================== */
+.agreement-modal-box {
+  max-width: 580px;
+}
+
+.agreement-file-header {
+  background: rgba(0, 229, 153, 0.08);
+  border: 1px solid rgba(0, 229, 153, 0.25);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.agreement-file-icon {
+  font-size: 1.8rem;
+}
+.agreement-file-info {
+  display: flex;
+  flex-direction: column;
+}
+.agreement-file-name {
+  font-weight: 700;
+  color: #fff;
+  font-size: 0.96rem;
+}
+.agreement-file-meta {
+  font-size: 0.78rem;
+  color: var(--green-primary);
+  font-family: var(--font-mono);
+}
+
+.agreement-terms-snippet {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 20px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.agreement-terms-snippet strong {
+  color: #fff;
+}
+.agreement-terms-snippet ul {
+  padding-left: 18px;
+  margin-top: 8px;
+}
+.agreement-terms-snippet li {
+  margin-bottom: 4px;
+}
+
+.agreement-checkbox-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-fast);
+}
+.agreement-checkbox-wrap:hover {
+  border-color: rgba(0, 229, 153, 0.4);
+  background: rgba(0, 229, 153, 0.04);
+}
+.agreement-checkbox-wrap.checked {
+  border-color: var(--green-primary);
+  background: rgba(0, 229, 153, 0.08);
+}
+.agreement-checkbox-input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--green-primary);
+  cursor: pointer;
+}
+.agreement-checkbox-label {
+  font-size: 0.88rem;
+  color: #e2e8f0;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.agreement-checkbox-label a {
+  color: var(--green-primary);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.modal-footer-dual {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* ==========================================================================
    Footer
    ========================================================================== */
 .site-footer {
@@ -1653,8 +1858,8 @@ section {
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
   z-index: 200;
   display: flex;
   align-items: center;
@@ -1739,6 +1944,7 @@ section {
   .sim-body { grid-template-columns: 1fr; height: auto; }
   .sim-sidebar { display: none; }
   .footer-top { grid-template-columns: 1fr; gap: 40px; }
+  .terms-content-card { padding: 28px; }
 }
 
 @media (max-width: 768px) {
@@ -1750,4 +1956,6 @@ section {
   .footer-links-group { grid-template-columns: 1fr; }
   .terms-callout { flex-direction: column; text-align: center; }
   .download-dropdown-menu { min-width: 100%; }
+  .modal-footer-dual { flex-direction: column; }
+  .modal-footer-dual .btn { width: 100%; }
 }
