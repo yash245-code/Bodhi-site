@@ -1,8 +1,8 @@
-# Cortex v1.0.0 — Initial Stable Release
+# Bodhi v1.0.0 — Initial Stable Release
 
-## 🚀 Welcome to Cortex v1.0.0
+## 🚀 Welcome to Bodhi v1.0.0
 
-**Cortex** is a next-generation lightweight, high-performance desktop code editor and AI-ready IDE engineered by **BUIMB Research**. Built on Electron, React 18, TypeScript, Monaco Editor, and native `node-pty` terminal streaming, Cortex delivers blazing speed with strict user privacy and zero hidden telemetry.
+**Bodhi** is a next-generation lightweight, high-performance desktop code editor and AI-ready IDE engineered by **BUIMB Research**. Built on Electron, React 18, TypeScript, Monaco Editor, and native `node-pty` terminal streaming, Bodhi delivers blazing speed with strict user privacy and zero hidden telemetry.
 
 ---
 
@@ -11,7 +11,7 @@
 | Field | Value |
 |---|---|
 | **Tag Version** | `v1.0.0` |
-| **Release Title** | `Cortex v1.0.0 — Initial Stable Release` |
+| **Release Title** | `Bodhi v1.0.0 — Initial Stable Release` |
 | **Target Branch** | `main` |
 | **Release Labels** | `release`, `v1.0.0`, `stable`, `windows-x64`, `electron`, `monaco`, `buimb-research` |
 
@@ -20,7 +20,7 @@
 ## ✨ Key Highlights & Features
 
 ### ⚡ 1. High-Precision Monaco Editor Core
-- Powered by the Monaco Editor engine (`@monaco-editor/react`) with custom `cortex-dark` syntax highlighting.
+- Powered by the Monaco Editor engine (`@monaco-editor/react`) with custom `bodhi-dark` syntax highlighting.
 - Syntax support for **25+ programming languages** (TypeScript, JavaScript, Python, Rust, Go, HTML, CSS, JSON, Markdown, and more).
 - Multi-cursor editing, minimap, bracket colorization, dirty buffer indicators (`●`), and active breadcrumb navigation.
 
@@ -37,9 +37,9 @@
 - Inline file & folder creation, renaming, and deletion.
 
 ### 🛡️ 4. Sovereign Privacy & 100% Local Execution
-- **Zero Hidden Telemetry**: Cortex does not track, scrape, or transmit source code or keystrokes.
+- **Zero Hidden Telemetry**: Bodhi does not track, scrape, or transmit source code or keystrokes.
 - **Direct AI Connectivity**: AI assistant features connect directly to your specified API provider using your own API key with no BUIMB intermediary proxy servers.
-- **Process Isolation**: Strict security boundary (`contextIsolation: true`, `nodeIntegration: false`) exposing only type-safe IPC channels via `window.cortexAPI`.
+- **Process Isolation**: Strict security boundary (`contextIsolation: true`, `nodeIntegration: false`) exposing only type-safe IPC channels via `window.bodhiAPI`.
 
 ### 📜 5. BUIMB Terms & Conditions Integration
 - Built-in **License Agreement & Terms** screen inside the Windows installer and in-app Help menu.
@@ -64,13 +64,13 @@
 
 ## 📦 Distribution Packages & Assets
 
-Attach these 3 files from `c:\Users\rawat\BUIMB Projects\Cortex\dist\`:
+Attach these 3 files from `c:\Users\rawat\BUIMB Projects\Bodhi\dist\`:
 
 | Asset | Format | Size | Description |
 |---|---|---|---|
-| **`Cortex Setup 1.0.0.exe`** | NSIS Installer | ~104.7 MB | Full Windows installer with Start Menu & desktop shortcuts |
-| **`Cortex-1.0.0-win-x64.zip`** | ZIP Archive | ~103.3 MB | Standalone portable package (extract and run) |
-| **`Cortex 1.0.0.exe`** | Portable Binary | ~104.2 MB | Single executable, zero installation required |
+| **`Bodhi Setup 1.0.0.exe`** | NSIS Installer | ~104.7 MB | Full Windows installer with Start Menu & desktop shortcuts |
+| **`Bodhi-1.0.0-win-x64.zip`** | ZIP Archive | ~103.3 MB | Standalone portable package (extract and run) |
+| **`Bodhi 1.0.0.exe`** | Portable Binary | ~104.2 MB | Single executable, zero installation required |
 
 ---
 
@@ -83,4 +83,4 @@ Attach these 3 files from `c:\Users\rawat\BUIMB Projects\Cortex\dist\`:
 
 ---
 
-**Full Changelog**: https://github.com/yash245-code/Cortex/commits/v1.0.0
+**Full Changelog**: https://github.com/yash245-code/Bodhi/commits/v1.0.0
